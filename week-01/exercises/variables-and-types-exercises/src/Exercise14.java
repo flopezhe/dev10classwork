@@ -1,7 +1,7 @@
 public class Exercise14 {
 
     public static void main(String[] args) {
-        int gradeLevel = 1;
+        int gradeLevel = 12;
         boolean isSenior = gradeLevel == 12;
         boolean isInterestedInVolunteering = true;
         boolean shouldSendVolunteerInfo = isSenior && isInterestedInVolunteering;

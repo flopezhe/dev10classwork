@@ -9,7 +9,7 @@ public class Exercise13 {
 
 
         // 1. Declare a boolean variable hasDiscount.
-        boolean hasDiscount = purchaseQuantity >= 6 || hasCoupon
+        boolean hasDiscount = purchaseQuantity >= 6 || hasCoupon;
 
         System.out.println(hasDiscount);
 

@@ -4,6 +4,7 @@ public class Exercise16 {
         // 1. Change the value of favoriteFood to your favorite food.
         // 2. Run the code.
         String favoriteFood = "mold";
+        favoriteFood = "platanos";
         System.out.println("Favorite Food: " + favoriteFood);
     }
 }
