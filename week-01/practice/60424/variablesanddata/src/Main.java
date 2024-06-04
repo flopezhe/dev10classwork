@@ -25,5 +25,26 @@
 public class Main {
     public static void main(String[] args){
 
+        int place = 2;
+        String ribbonColor ;
+
+        switch(place){
+            case 1:
+                ribbonColor = "blue";
+                System.out.println("first place!");
+                break;
+            case 2:
+                ribbonColor = "red";
+                System.out.println("second place!");
+                break;
+            case 3:
+                ribbonColor = "white";
+                System.out.println("third place!");
+                break;
+            default:
+                ribbonColor = "unknown!";
+        }
+
+        System.out.println(ribbonColor);
     }
 }

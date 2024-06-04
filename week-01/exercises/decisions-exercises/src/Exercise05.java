@@ -11,6 +11,11 @@ public class Exercise05 {
         // 1. Add decision statements so that:
         // If the secret work is tahini, print the message:
         //   You're correct. The secret word is "tahini".
+        if (secret.equals("tahini")){
+            System.out.println("You're correct, the secret word is tahini");
+        } else {
+            System.out.println("Thats not quite right, try again");
+        }
         // Otherwise, print:
         //   That's not quite right. Try again.
     }

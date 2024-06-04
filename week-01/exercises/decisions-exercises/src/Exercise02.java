@@ -11,6 +11,9 @@ public class Exercise02 {
         int value = Integer.parseInt(input);
 
         // 1. Add an if statement that determines if value is even.
+        if ( value % 2 == 0 ){
+            System.out.println(value);
+        }
         // 2. If it is, print a message.
         // Don't worry about bad input. e.g. if the user enters "pppffghht".
     }
