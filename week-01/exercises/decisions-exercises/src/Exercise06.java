@@ -19,6 +19,12 @@ public class Exercise06 {
         System.out.print("# of Shoppers: ");
         int shopperCount = Integer.parseInt(console.nextLine());
 
+        if (snorkelerCount % 2 == 0) {
+            System.out.println("Everyone gets their preferred activity!");
+        } else {
+            System.out.println(snorkelerCount+shopperCount);
+        }
+
         // 1. Apply if/else here.
     }
 }
