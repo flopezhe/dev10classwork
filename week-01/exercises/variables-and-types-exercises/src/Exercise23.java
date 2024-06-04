@@ -7,7 +7,7 @@ public class Exercise23 {
 
         // 1. Use the substring method to print each color on its own line.
         // "red" is already complete.
-
+        System.out.println(colors.substring(4,10));
         // Expected Output:
         // red
         // orange
