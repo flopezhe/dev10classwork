@@ -7,7 +7,9 @@ public class Exercise09 {
         double c = 46338.06248816222;
 
         // 1. Calculate the average of a, b, and c and store the value in a new variable.
+        int average = (int) ((a+b+c)/3);
         // 2. Print the result.
+        System.out.println(average);
         // Expected value: 45041.03185 (give or take)
     }
 }
