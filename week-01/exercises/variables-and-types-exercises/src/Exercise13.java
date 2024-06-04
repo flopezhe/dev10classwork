@@ -9,12 +9,7 @@ public class Exercise13 {
 
 
         // 1. Declare a boolean variable hasDiscount.
-        boolean hasDiscount = false;
-        if ( purchaseQuantity >= 6 || hasCoupon ){
-            hasDiscount = true;
-        } else {
-            hasDiscount = false;
-        }
+        boolean hasDiscount = purchaseQuantity >= 6 || hasCoupon
 
         System.out.println(hasDiscount);
 
