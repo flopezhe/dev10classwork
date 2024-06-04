@@ -3,9 +3,21 @@ public class Exercise13 {
     public static void main(String[] args) {
 
         int purchaseQuantity = 2;
+        purchaseQuantity = 10;
         boolean hasCoupon = false;
+//        hasCoupon = true;
+
 
         // 1. Declare a boolean variable hasDiscount.
+        boolean hasDiscount = false;
+        if ( purchaseQuantity >= 6 || hasCoupon ){
+            hasDiscount = true;
+        } else {
+            hasDiscount = false;
+        }
+
+        System.out.println(hasDiscount);
+
         // 2. Use an expression with comparison operators to assign its value.
         // hasDiscount is true if purchaseQuantity is greater than or equal to 6 OR hasCoupon is true.
         // 3. Print the result.
