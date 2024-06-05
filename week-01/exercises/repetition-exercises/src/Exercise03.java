@@ -2,7 +2,9 @@ public class Exercise03 {
 
     public static void main(String[] args) {
         // 1. Write a loop to count backward from 23 to 17.
-
+        for (int index = 23;  index >= 17; index--) {
+            System.out.println(index);
+        }
         // Expected Output
         // 23
         // 22
