@@ -5,8 +5,13 @@ public class Exercise06 {
         // Run the code before you make changes to better understand current behavior.
         // The transformation from `for` to `while` should not change behavior.
 
-        for (int i = 3; i < 213; i += 13) {
-            System.out.println(i);
+//        for (int i = 3; i < 213; i += 13) {
+//            System.out.println(i);
+//        }
+        int value = 3;
+        while( value < 213 ){
+            System.out.println(value);
+            value += 13;
         }
     }
 }
