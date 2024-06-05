@@ -21,7 +21,7 @@ public class Exercise10 {
         // If a lbs/zone combo does not exist, print a warning message for the user.
 
         Scanner console = new Scanner(System.in);
-        System.out.println("Enter parcel lbs:");
+        System.out.println("Enter parcel lbs(1-5):");
         int parcelLbs = Integer.parseInt(console.nextLine());
         System.out.println("Enter zone(1,2,3):");
         int parcelZone = Integer.parseInt(console.nextLine());
