@@ -13,7 +13,12 @@ public class Exercise05 {
         System.out.println(gallonsToCups(1)); // Expected: 16
         System.out.println(gallonsToCups(2)); // Expected: 32
         */
+
+        System.out.println(gallonsToCups(2));
     }
 
+    static int gallonsToCups (int gallons){
 
+        return gallons * 16;
+    }
 }

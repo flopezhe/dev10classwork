@@ -8,6 +8,12 @@ public class Exercise01 {
         // Call the getRandomCompliment method two more times.
         // 1. Store the result in a new string variable.
         // 2. Print the result.
+        String secondCompliment = getRandomCompliment();
+        System.out.println(secondCompliment);
+        String thirdCompliment = getRandomCompliment();
+        System.out.println(thirdCompliment);
+        getRandomCompliment();
+        System.out.println(getRandomCompliment());
         // 3. Print the value returned directly without an intermediate variable.
     }
 

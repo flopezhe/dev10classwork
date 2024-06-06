@@ -6,6 +6,7 @@ public class Exercise03 {
         System.out.println(result); // Expected (roughly): 19.32
         System.out.println(milesToKilometers(1024f)); // Expected: 1648.64
         System.out.println(milesToKilometers(123.45f)); // Expected: 198.7545
+        System.out.println(milesToKilometers(46f));
 
         // 2. Add at least one more milesToKilometers call and confirm it works.
     }
@@ -13,6 +14,6 @@ public class Exercise03 {
     // milesToKilometers converts miles to kilometers.
     // 1. Complete the milesToKilometers method.
     public static float milesToKilometers(float miles) {
-        return 0;
+        return miles*1.60934f;
     }
 }
