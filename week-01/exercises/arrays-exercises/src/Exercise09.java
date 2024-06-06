@@ -10,9 +10,11 @@ public class Exercise09 {
             if(haystack[values] != null){
                 System.out.println("Found needle! it is located in"+values);;
             }
-            if(haystack[values] == "needle"){
-                System.out.println("needle is in"+values);
-            }
+
+            // below is an example of technically correct but bad code, use .equals() for strings
+//            if(haystack[values] == "needle"){
+//                System.out.println("needle is in"+values);
+//            }
 
             }
         }
