@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class Exercise07 {
@@ -9,8 +10,14 @@ public class Exercise07 {
         // generated between -500 and 500.
         // 1. Create a loop to calculate the sum of elements in `values`.
         // 2. Print the result.
+        int sum = 0;
+        for(int value = 0; value < values.length; value ++){
+            sum += values[value];
+        }
+        System.out.println(sum);
         // Since the array is random, your result will vary during each run.
         // 3. Print the length of the array.
+        System.out.println(Arrays.toString(values));
     }
 
     public static int[] makeRandomArray() {

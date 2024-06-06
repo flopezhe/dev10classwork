@@ -1,10 +1,11 @@
 public class Exercise03 {
     public static void main(String[] args) {
         String[] commonlyMisspelledWords = {"indict", "fiery", "misspell", "comparsion", "perseverance"};
-
+        commonlyMisspelledWords[3]= "comparison";
         for (int i = 0; i < commonlyMisspelledWords.length; i++) {
             System.out.println(commonlyMisspelledWords[i]);
         }
+//        System.out.println(commonlyMisspelledWords[4]);
 
         // One of the commonlyMisspelledWords is misspelled.
         // (IntelliJ may help here. It highlights misspelled words.)
