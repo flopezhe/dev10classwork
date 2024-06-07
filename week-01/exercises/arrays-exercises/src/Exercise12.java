@@ -4,6 +4,7 @@ public class Exercise12 {
 
     public static void main(String[] args) {
         int[] values = makeRandomArray();
+        System.out.printf("%s%n %s%n %d%n", "Woah the fudge", "What the fudge", 1);
 
         // 1. Count the number of positive and non-positive elements in `values`.
         // 2. Create two new int[]s, one for positive elements and one for non-positive.

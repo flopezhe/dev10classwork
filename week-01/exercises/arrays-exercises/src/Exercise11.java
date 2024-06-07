@@ -17,7 +17,7 @@ public class Exercise11 {
         for(int element = 0; element < values.length; element ++){
             if(values[element] > 0){
                 positiveElements[index] = values[element];
-                index ++;
+                index +=1;
             }
         }
 

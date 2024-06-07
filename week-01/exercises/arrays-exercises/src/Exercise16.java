@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class Exercise16 {
@@ -6,6 +7,16 @@ public class Exercise16 {
         // MERGE
         int[] one = makeRandomAscendingArray();
         int[] two = makeRandomAscendingArray();
+
+        int[] oneTwoArray = new int[one.length + two.length];
+
+        int indexOfArray = 0;
+        for(int index = 0; index < oneTwoArray.length ; index ++ ){
+            if (index >= 1){
+                indexOfArray++;
+            }
+        }
+        System.out.println(Arrays.toString(oneTwoArray));
 
         // makeRandomAscendingArray creates a random array with a capacity between 50 and 150.
         // Its elements are guaranteed to be sorted ascending.

@@ -22,9 +22,28 @@ public class Exercise14 {
             case 1:
                 System.out.println("I refuse to say \"a case of the Mondays\".");
                 break;
+            case 2:
+                System.out.println("I refuse to say \"Taco tuesdays\".");
+                break;
+            case 3:
+                System.out.println("I refuse to say \"On Wednesdays we wear pink\".");
+                break;
+            case 4:
+                System.out.println("I refuse to say \"It's Fridays Eve \".");
+                break;
+            case 5:
+                System.out.println("I refuse to say \"TGIF\".");
+                break;
+            case 6 :
+                System.out.println("I refuse to say \"One more day till Monday\".");
+                break;
+            case 7:
+                System.out.println("I refuse to say \"Tomorrow is Mondayyyy\".");
+                break;
             default:
                 System.out.println("I don't recognize that day.");
                 break;
+
         }
     }
 }

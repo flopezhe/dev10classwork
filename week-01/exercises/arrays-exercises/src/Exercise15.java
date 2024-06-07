@@ -5,6 +5,14 @@ public class Exercise15 {
     public static void main(String[] args) {
         int[] one = makeRandomArray();
         int[] two = makeRandomArray();
+        int[] oneTwo = new int[one.length + two.length];
+
+        int indexTracker = 0;
+        for(int i = 0; i < one.length; i++){
+
+            oneTwo[indexTracker] = one[i];
+            indexTracker++;
+        }
 
         // 1. Create a new int[] with room enough for all elements in `one` and `two`.
         // 2. Copy elements from `one` into the beginning of the array.
