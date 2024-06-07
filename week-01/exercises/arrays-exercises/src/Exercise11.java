@@ -1,9 +1,29 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class Exercise11 {
 
     public static void main(String[] args) {
         int[] values = makeRandomArray();
+        int totalPositiveElements = 0;
+        for(int element = 0; element < values.length; element ++){
+            if(values[element] > 0){
+                totalPositiveElements += 1;
+            }
+        }
+        System.out.println("There are " + totalPositiveElements + " Positive elements in the array");
+        int[] positiveElements = new int[totalPositiveElements];
+        int index = 0;
+        for(int element = 0; element < values.length; element ++){
+            if(values[element] > 0){
+                positiveElements[index] = values[element];
+                index ++;
+            }
+        }
+
+        System.out.println(Arrays.toString(positiveElements));
+
+
 
         // 1. Count the number of positive elements in `values`.
         // 2. Create a new int[] to hold the positive elements.
