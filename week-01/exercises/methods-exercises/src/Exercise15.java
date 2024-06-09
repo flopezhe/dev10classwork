@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Exercise15 {
     /* FIZZ BUZZ
 
@@ -12,24 +14,30 @@ public class Exercise15 {
     - If the number is divisible by both 3 and 5, print Fizz Buzz.
     - If the number is not divisible by either 3 or 5, print the number.
 
-    Example Output:
-    1
-    2
-    Fizz
-    4
-    Buzz
-    Fizz
-    7
-    8
-    Fizz
-    Buzz
-    11
-    Fizz
-    13
-    14
-    Fizz Buzz
-    16
-    17
-    Fizz
-     */
+   */
+    public static void main(String[] args) {
+
+//        Scanner console = new Scanner(System.in);
+//        System.out.println("Give me a positive integer: ");
+//        int input = Integer.parseInt(console.nextLine());
+        findTheFizzBuzz();
+
+    }
+    public static void findTheFizzBuzz(){
+
+        Scanner console = new Scanner(System.in);
+        System.out.println("Give me a positive integer: ");
+        int input = Integer.parseInt(console.nextLine());
+        for(int i = 0; i <= input; i++){
+            if((i%5 == 0) && (i%3==0)){
+                System.out.println("FizzBuzz");
+            } else if(i%5==0){
+                System.out.println("Buzz");
+            } else if(i%3==0){
+                System.out.println("Fizz");
+            } else {
+                System.out.println(i);
+            }
+        }
+    }
 }
