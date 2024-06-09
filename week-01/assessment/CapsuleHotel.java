@@ -5,7 +5,9 @@ public class CapsuleHotel {
         System.out.println(welcome);
         System.out.println("=".repeat(welcome.length()));
         Scanner console = new Scanner(System.in);
-        String[] hotelBuilding = new String[100];
+        System.out.println("How many capsules do you want in this hotel?");
+        int amountOfCapsules = Integer.parseInt(console.nextLine());
+        String[] hotelBuilding = new String[amountOfCapsules];
 
 
 
