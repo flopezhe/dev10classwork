@@ -5,7 +5,9 @@ public class CapsuleHotel {
         System.out.println(welcome);
         System.out.println("=".repeat(welcome.length()));
         Scanner console = new Scanner(System.in);
-        String[] hotelBuilding = new String[100];
+        System.out.println("Please provide the hotel capacity");
+        int capacity = Integer.parseInt(console.nextLine());
+        String[] hotelBuilding = new String[capacity];
 
 
 
@@ -43,7 +45,16 @@ public class CapsuleHotel {
                     hotelBuilding[roomNum-1] = "[Empty Room]";
                 }
             } else if(input.equals("3")){
-                displayCapsuleHotelBuilding(hotelBuilding);
+                System.out.println("Please enter a capsule room # to display the occupancy around it:");
+                int roomOccupancy = Integer.parseInt(console.nextLine());
+                if (roomOccupancy <= 0 || roomOccupancy >= hotelBuilding.length){
+                    System.out.println("Enter a valid capsule room #");
+                } else {
+                    int beginningRoom = Math.max(0, roomOccupancy-6);
+                    int endingRoom = Math.min(hotelBuilding.length, roomOccupancy +5);
+                    displayCapsuleHotelBuilding(hotelBuilding, beginningRoom, endingRoom);
+                }
+
             } else if (input.equals("4")){
                 System.out.println("Goodbye!");
             } else {
@@ -71,9 +82,9 @@ public class CapsuleHotel {
         System.out.println("Great, "+guestName+" has been checked in!");
         capsuleHotelBuilding[room-1] = guestName;
     }
-    public static void displayCapsuleHotelBuilding(String[] capsuleHotelBuilding){
+    public static void displayCapsuleHotelBuilding(String[] capsuleHotelBuilding, int beginningRoom, int endingRoom){
         System.out.println("The total current building layout is below: ");
-        for(int i = 0; i < capsuleHotelBuilding.length; i++){
+        for(int i = beginningRoom; i < endingRoom; i++){
             System.out.printf("Room #%s: %s%n", i+1, capsuleHotelBuilding[i] == null ? "[Empty Room]": capsuleHotelBuilding[i]);
         }
 //        System.out.println(Arrays.toString(capsuleHotelBuilding));
