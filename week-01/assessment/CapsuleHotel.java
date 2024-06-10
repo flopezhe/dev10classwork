@@ -5,9 +5,13 @@ public class CapsuleHotel {
         System.out.println(welcome);
         System.out.println("=".repeat(welcome.length()));
         Scanner console = new Scanner(System.in);
+
         System.out.println("Please provide the hotel capacity:");
         int capacity = Integer.parseInt(console.nextLine());
         String[] hotelBuilding = new String[capacity];
+
+    
+
 
         String input;
 
