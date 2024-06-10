@@ -9,8 +9,6 @@ public class CapsuleHotel {
         int capacity = Integer.parseInt(console.nextLine());
         String[] hotelBuilding = new String[capacity];
 
-
-
         String input;
 
         do {
@@ -63,9 +61,7 @@ public class CapsuleHotel {
 
         } while (!input.equals("4"));
 
-
     }
-
     public static void addGuest(Scanner console, String[] capsuleHotelBuilding){
 
         System.out.println("Enter the Capsule Room # you want to add the guest to: ");
@@ -87,6 +83,5 @@ public class CapsuleHotel {
         for(int i = beginningRoom; i < endingRoom; i++){
             System.out.printf("Room #%s: %s%n", i+1, capsuleHotelBuilding[i] == null ? "[Empty Room]": capsuleHotelBuilding[i]);
         }
-//        System.out.println(Arrays.toString(capsuleHotelBuilding));
     }
 }
