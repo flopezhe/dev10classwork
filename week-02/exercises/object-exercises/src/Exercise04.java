@@ -10,6 +10,7 @@ public class Exercise04 {
         // 2. Uncomment the code below and make sure it runs.
         Musician m = new Musician();
         boolean isEnded = false;
+
         do{
             System.out.print("Musician name:");
             String input = (console.nextLine());
