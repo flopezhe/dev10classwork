@@ -33,17 +33,7 @@ public class CapsuleHotel {
                 addGuest(console, hotelBuilding);
 
             } else if(input.equals("2")){
-                System.out.println("Great, lets checkout the guest");
-                System.out.println("Please enter the Capsule Room # of the guest:");
-                int roomNum = Integer.parseInt(console.nextLine());
-                if(roomNum <= 0 || roomNum >= hotelBuilding.length){
-                    return;
-                } else if(hotelBuilding[roomNum-1] == null){
-                    System.out.println("There is no one in Capsule Room#" +roomNum + ". Please enter a valid room");
-                } else {
-                    System.out.println("Great Capsule Room#"+roomNum+" has been checked out, you're all set!");
-                    hotelBuilding[roomNum-1] = "[Empty Room]";
-                }
+                removeGuest(console, hotelBuilding);
             } else if(input.equals("3")){
                 System.out.println("Please enter a capsule room # to display the occupancy around it:");
                 int roomOccupancy = Integer.parseInt(console.nextLine());
@@ -65,11 +55,25 @@ public class CapsuleHotel {
 
     }
 
+    private static void removeGuest(Scanner console, String[] hotelBuilding) {
+        System.out.println("Great, lets checkout the guest");
+        System.out.println("Please enter the Capsule Room # of the guest:");
+        int roomNum = Integer.parseInt(console.nextLine());
+        if(roomNum <= 0 || roomNum >= hotelBuilding.length){
+            System.out.println("Enter a valid capsule room #");
+        } else if(hotelBuilding[roomNum-1] == null){
+            System.out.println("There is no one in Capsule Room#" +roomNum + ". Please enter a valid room");
+        } else {
+            System.out.println("Great Capsule Room#"+roomNum+" has been checked out, you're all set!");
+            hotelBuilding[roomNum-1] = null;
+        }
+    }
+
     public static void addGuest(Scanner console, String[] capsuleHotelBuilding){
 
         System.out.println("Enter the Capsule Room # you want to add the guest to: ");
         int room = Integer.parseInt(console.nextLine());
-        if(room <= 0 || room >= capsuleHotelBuilding.length ){
+        if(room <= 0 || room > capsuleHotelBuilding.length){
             System.out.println("That is not a valid room #");
             return;
         } else if (capsuleHotelBuilding[room-1] != null){
@@ -81,11 +85,12 @@ public class CapsuleHotel {
         System.out.println("Great, "+guestName+" has been checked in!");
         capsuleHotelBuilding[room-1] = guestName;
     }
+
     public static void displayCapsuleHotelBuilding(String[] capsuleHotelBuilding, int beginningRoom, int endingRoom){
         System.out.println("The total current building layout is below: ");
         for(int i = beginningRoom; i < endingRoom; i++){
             System.out.printf("Room #%s: %s%n", i+1, capsuleHotelBuilding[i] == null ? "[Empty Room]": capsuleHotelBuilding[i]);
         }
-//        System.out.println(Arrays.toString(capsuleHotelBuilding));
+
     }
 }
