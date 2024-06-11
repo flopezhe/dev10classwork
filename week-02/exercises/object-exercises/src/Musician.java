@@ -29,4 +29,11 @@ public class Musician {
         return rating;
     }
 
+    String input;
+    int newRating;
+
+    public Musician(){
+
+    }
+
 }
