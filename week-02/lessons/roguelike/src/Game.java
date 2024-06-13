@@ -12,6 +12,8 @@ public class Game {
     private Hero hero;
     private Treasure treasure;
     private boolean isOver;
+    private Trap trap;
+    private Trap trapTwo;
 
     public void run() {
         setUp();
@@ -25,12 +27,24 @@ public class Game {
     private void setUp() {
         System.out.print("What is the name of your hero?: ");
         String name = console.nextLine();
+        System.out.println("What is the Symbol of your hero, only one character please?");
+        String newSymbol = console.nextLine();
+        char c = newSymbol.charAt(0);
+
 
         Random rand = new Random();
         int x = rand.nextInt(WIDTH);
         int y = rand.nextInt(WIDTH);
+        rand.nextInt(WIDTH);
+        int a;
+        rand.nextInt(WIDTH);
+        int b;
+        rand.nextInt(WIDTH);
+        int e;
+        rand.nextInt(WIDTH);
+        int f;
 
-        hero = new Hero(name, x, y);
+        hero = new Hero(name,c, x, y);
 
         do {
             x = rand.nextInt(WIDTH);
@@ -38,6 +52,17 @@ public class Game {
         } while (x == hero.getX() && y == hero.getY());
 
         treasure = new Treasure(x, y);
+
+        do{
+            a= rand.nextInt(WIDTH);
+            b=rand.nextInt(WIDTH);
+        } while (a==hero.getX() && b == hero.getY());
+        trap = new Trap(a,b);
+        do{
+            e= rand.nextInt(WIDTH);
+            f =rand.nextInt(WIDTH);
+        } while(e==hero.getX() && f == hero.getY());
+        trapTwo=new Trap(e, f);
     }
 
     private void printWorld() {
@@ -52,7 +77,11 @@ public class Game {
                     System.out.print(hero.getSymbol());
                 } else if (row == treasure.getY() && col == treasure.getX()) {
                     System.out.print("T");
-                } else {
+                } else if(row == trap.getTrapA() && col == trap.getTrapB()){
+                    System.out.print("X");
+                } else if(row == trapTwo.getTrapA() && col == trapTwo.getTrapB()) {
+                    System.out.print("X");
+                }else {
                     System.out.print(EMPTY_CHARACTER);
                 }
             }
@@ -96,6 +125,12 @@ public class Game {
         } else if (hero.getX() == treasure.getX() && hero.getY() == treasure.getY()) {
             System.out.println(hero.getName() + " found the treasure! You win.");
             isOver = true;
+        } else if (hero.getX() == trap.getTrapA() && hero.getY() == trap.getTrapB()){
+            System.out.println("You died!");
+            isOver=true;
+        } else if (hero.getX() == trapTwo.getTrapA() && hero.getY() == trapTwo.getTrapB()){
+            System.out.println("You died!");
+            isOver=true;
         }
     }
 }

@@ -41,6 +41,26 @@ public class Exercise07 {
         do {
             System.out.print("Select [1-4]:");
             input = console.nextLine();
+
+            switch (input){
+                case "1":
+
+                    System.out.println("What is your wallet balance?");
+                    double bal = Double.parseDouble(console.nextLine());
+                    System.out.println("Wallet name?");
+                    String walletName = console.nextLine();
+                    MoneyStorage storage = new Wallet(bal, walletName);
+
+                    return storage;
+
+
+                case "2":
+                    MoneyStorage[] mortgage;
+                case "3":
+                    MoneyStorage[] vault;
+                case "4":
+                    MoneyStorage[] bankAccount;
+            }
         } while (!(input.length() == 1 && input.charAt(0) >= '1' && input.charAt(0) <= '4'));
 
         // 1. Add a switch statement to handle options 1 - 4.
@@ -56,12 +76,13 @@ public class Exercise07 {
         return null;
     }
 
+
     static void print(MoneyStorage storage) {
         System.out.println();
         System.out.println(storage.getDescription());
         System.out.println("=".repeat(storage.getDescription().length()));
         System.out.printf("Current balance: $%.2f%n", storage.getBalance());
-        System.out.println();
+//        System.out.println();
     }
 
     static void makeDeposit(MoneyStorage storage) {

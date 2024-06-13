@@ -17,6 +17,11 @@ public class Exercise01 {
 
         // 1. Declare a third MoneyStore variable here, either Wallet or Mortgage.
         // 2. Pass it to the `print` method.
+        Person person = new Person("John","Doe");
+        print(person);
+        Wallet newWallet = new Wallet(1000, "John Wallet");
+        print(newWallet);
+
     }
 
     static void print(MoneyStorage storage) {

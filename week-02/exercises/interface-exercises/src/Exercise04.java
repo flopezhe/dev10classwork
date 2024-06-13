@@ -3,6 +3,7 @@ public class Exercise04 {
     public static void main(String[] args) {
         // 1. Replace `null` with a new Vault. Initialize its balance to zero.
         MoneyStorage storage = null;
+        storage = new Vault(0, "Vault34");
 
         // 2. Run Exercise04.
         // The only output allowed is: Success!

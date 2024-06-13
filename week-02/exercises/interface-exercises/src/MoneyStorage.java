@@ -5,6 +5,7 @@ public interface MoneyStorage {
     /**
      * @return the current balance
      */
+
     double getBalance();
 
     /**

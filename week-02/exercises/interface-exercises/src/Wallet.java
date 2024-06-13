@@ -34,7 +34,7 @@ public class Wallet implements MoneyStorage {
 
     @Override
     public double withdraw(double amount) {
-        // can't withdraw a negative amount
+        // can't withdraw more than 25
         if (amount <= 0.0) {
             return 0.0;
         }
