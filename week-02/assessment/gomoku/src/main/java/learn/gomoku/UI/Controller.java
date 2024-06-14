@@ -3,6 +3,7 @@ package learn.gomoku.UI;
 import learn.gomoku.game.Gomoku;
 import learn.gomoku.game.Stone;
 import learn.gomoku.players.HumanPlayer;
+import learn.gomoku.players.Player;
 import learn.gomoku.players.RandomPlayer;
 
 import java.awt.*;
@@ -14,11 +15,25 @@ import java.util.Scanner;
 
 public class Controller {
 
-
+    public static Stone stone = new Stone(0,0,true);
     public static RandomPlayer computerPlayer1 = new RandomPlayer();
     public static RandomPlayer computerPlayer2 = new RandomPlayer();
     public static HumanPlayer humanPlayer1 ;
     public static HumanPlayer humanPlayer2 ;
+    public static Gomoku gamePlayers = new Gomoku(humanPlayer1, humanPlayer2);
+
+    public static Stone getStone() {
+        return stone;
+    }
+
+    public static void setStone(Stone stone) {
+        Controller.stone = stone;
+    }
+
+    public static void setGamePlayers(Gomoku gamePlayers) {
+        Controller.gamePlayers = gamePlayers;
+    }
+
 
     public static void setHumanPlayer1(HumanPlayer humanPlayer1){
         Controller.humanPlayer1 = humanPlayer1;
@@ -55,18 +70,22 @@ public class Controller {
             String secondPlayerInGame = secondPlayerIsSelected(choiceOfSecondPlayer);
             System.out.println(secondPlayerInGame+ " is the Second Player!");
 
-
-            if(firstPlayerInGame.equals(computerPlayer1.getName())){
-                System.out.println(computerPlayer1.getName() + " is a computer!");
-            } else if(firstPlayerInGame.equals(humanPlayer1.getName())){
-                System.out.println(humanPlayer1.getName() + " is a human");
+            if(firstPlayerInGame.equals(computerPlayer1.getName()) && secondPlayerInGame.equals(computerPlayer2.getName())){
+                Gomoku gamePlayersOfficial = new Gomoku(computerPlayer1, computerPlayer2);
+                setGamePlayers(gamePlayersOfficial);
+            } else if(firstPlayerInGame.equals(humanPlayer1.getName()) && secondPlayerInGame.equals(computerPlayer2.getName())){
+                Gomoku gamePlayersOfficial = new Gomoku(humanPlayer1 , computerPlayer2);
+                setGamePlayers(gamePlayersOfficial);
+            }else if (firstPlayerInGame.equals(humanPlayer1.getName()) && secondPlayerInGame.equals(humanPlayer2.getName())){
+                Gomoku gamePlayersOfficial = new Gomoku(humanPlayer1 , humanPlayer2);
+                setGamePlayers(gamePlayersOfficial);
+            } else if (firstPlayerInGame.equals(computerPlayer1.getName()) && secondPlayerInGame.equals(humanPlayer2.getName())) {
+                Gomoku gamePlayersOfficial = new Gomoku(computerPlayer1 , humanPlayer2);
+                setGamePlayers(gamePlayersOfficial);
             }
 
-            if (secondPlayerInGame.equals(computerPlayer2.getName())){
-                System.out.println(computerPlayer2.getName()+ " is a computer");
-            } else if (secondPlayerInGame.equals(humanPlayer2.getName())) {
-                System.out.println(humanPlayer2.getName() + " is a human.");
-            }
+            System.out.println(getStone());
+
 
 
         }while(!gameIsOver);
