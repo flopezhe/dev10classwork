@@ -14,5 +14,12 @@ public class Exercise04 {
         // 3. Print the new list.
         // 4. Add items in the new list to `games` with the `addAll` method.
         // 5. Print `games`.
+
+        ArrayList<BoardGame> twoPlayerGames = new ArrayList<>();
+        twoPlayerGames.add(0, new BoardGame("Random1", 1,2,"Competitive"));
+        twoPlayerGames.add(1,new BoardGame("Random2", 1,2,"Competitive"));
+        System.out.println(twoPlayerGames);
+        games.addAll(twoPlayerGames);
+        System.out.println(games);
     }
 }
