@@ -1,3 +1,9 @@
+import java.security.Key;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
 public class Exercise03 {
 
     // 1. Read the hasAllVowels JavaDocs.
@@ -13,6 +19,14 @@ public class Exercise03 {
      * @return true if the value contains all 5 vowels, false if it doesn't
      */
     static boolean hasAllVowels(String value) {
-        return false;
+
+
+//    Scanner scanner = new Scanner(System.in);
+        String testInput = "We will rock you.";
+        String vowels = "aeiou";
+        int vowelCount = 0;
+        for (int i = 0; i < testInput.length(); i++){
+            if (testInput.contains(vowels))
+        }
     }
 }

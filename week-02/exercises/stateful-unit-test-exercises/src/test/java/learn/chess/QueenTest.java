@@ -27,6 +27,26 @@ class QueenTest {
         assertEquals(0, queen.getColumn());
     }
 
+    @Test
+    void shouldNotGoOffTheBoard(){
+        assertFalse(queen.move(-1, 8));
+        assertEquals(0, queen.getRow());
+        assertEquals(0, queen.getColumn());
+        assertFalse(queen.move(8,-1));
+        assertEquals(0, queen.getRow());
+        assertEquals(0, queen.getColumn());
+    }
+
+    @Test
+    void shouldNotMoveToCurrentLocation(){
+        assertTrue(queen.move(1,1));
+        assertEquals(1, queen.getRow());
+        assertEquals(1, queen.getColumn());
+        assertFalse(queen.move(1,1));
+        assertEquals(1, queen.getRow());
+        assertEquals(1, queen.getColumn());
+    }
+
     // 1. Add tests to validate Queen movement.
     // Required tests:
     // - anything off the board is invalid, should return false and leave field values alone.

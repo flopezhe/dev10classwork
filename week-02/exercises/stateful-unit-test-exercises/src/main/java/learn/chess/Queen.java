@@ -31,6 +31,7 @@ public class Queen {
         return column;
     }
 
+
     /**
      * Requests a move to a new row and column.
      *
@@ -51,6 +52,25 @@ public class Queen {
         // - Otherwise, the absolute difference between row parameter and field
         //   and the absolute difference between the column parameter and field must be the same.
         //   That represents a diagonal move.
-        return false;
+
+        if(row < 0 || row > 7 || column < 0 || column > 7 ){
+            return false;
+        } else if (row == this.row && column == this.column){
+            return false;
+        } else if (row == this.row && column != this.column){
+            this.column=column;
+            return true;
+        } else if (row != this.row && column == this.column){
+            this.row = row;
+            return true;
+        } else if(Math.abs(row - this.row) == Math.abs(column-this.column)){
+            this.row=row;
+            this.column=column;
+            return true;
+        }
+
+        this.row = row;
+        this.column = column;
+        return true;
     }
 }

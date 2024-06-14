@@ -6,6 +6,7 @@ class Exercise01Test {
 
     @Test
     void add() {
+
         assertEquals(2, Exercise01.add(1, 1));
         assertEquals(0, Exercise01.add(112, -112));
         assertEquals(-256, Exercise01.add(-206, -50));
