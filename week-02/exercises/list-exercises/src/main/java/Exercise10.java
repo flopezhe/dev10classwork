@@ -11,5 +11,12 @@ public class Exercise10 {
 
         // 1. Loop over `games` and remove any game that can be played by one person.
         // 2. Print `games` and confirm single-player games are removed.
+        for (BoardGame game : games){
+            if ( game.getMaxPlayers()==1){
+                games.remove(game);
+            }
+        }
+
+        System.out.println(games);
     }
 }
