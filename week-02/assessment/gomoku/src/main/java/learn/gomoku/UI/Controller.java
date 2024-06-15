@@ -32,7 +32,7 @@ public class Controller {
             System.out.println("1. Human Player");
             System.out.println("2. Random Player");
             Integer choiceOfFirstPlayer = Integer.parseInt(scanner.nextLine());
-            String firstPlayerInGame =
+            String firstPlayerInGame = playerIsSelected(choiceOfFirstPlayer, true);
 
             System.out.println(firstPlayerInGame + " is the First Player!");
 
@@ -40,8 +40,12 @@ public class Controller {
             System.out.println("1. Human Player");
             System.out.println("2. Random Player");
             Integer choiceOfSecondPlayer = Integer.parseInt(scanner.nextLine());
-            String secondPlayerInGame = secondPlayerIsSelected(choiceOfSecondPlayer);
+            String secondPlayerInGame = playerIsSelected(choiceOfSecondPlayer, false);
             System.out.println(secondPlayerInGame+ " is the Second Player!");
+
+            gamePlayers = new Gomoku(player1, player2);
+            boardWorld();
+            System.out.println(player2.getName() + " it is your turn first");
 
 
 
@@ -60,12 +64,12 @@ public class Controller {
         }
 
         for (Stone stone : gamePlayers.getStones()) {
-            board[stone.getRow()][stone.getColumn()] = stone.isBlack() ? 'B' : 'W';
+            board[stone.getRow()-1][stone.getColumn()-1] = stone.isBlack() ? 'B' : 'W';
         }
 
         System.out.println("  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15");
         for (int i = 0; i < WIDTH; i++) {
-            System.out.printf("%2d ", i + 1);
+            System.out.printf("%2d ", i+1);
             for (int j = 0; j < WIDTH; j++) {
                 System.out.print(board[i][j] + " ");
             }
@@ -76,27 +80,33 @@ public class Controller {
     }
 
 
-    public static String firstPlayerIsSelected(int firstChoice) {
+    public static String playerIsSelected(int choiceOfPlayer, boolean isFirstPlayer) {
         Scanner scanner = new Scanner(System.in);
-        String firstPlayerName = "";
-        if (firstChoice == 1 ) {
+        String playerName = "";
+
+        if (choiceOfPlayer == 1) {
             System.out.println("What is your first name?");
             String firstName = scanner.nextLine();
             System.out.println("What is your last name?");
             String lastName = scanner.nextLine();
-            firstPlayerName = firstName+" "+ lastName;
-            HumanPlayer humanPlayerOne = new HumanPlayer(firstPlayerName);
-            setHumanPlayer1(humanPlayerOne);
-
-
-        } else if (firstChoice == 2) {
-            RandomPlayer computerPlayerOne = new RandomPlayer();
-            setComputerPlayer1(computerPlayerOne);
-            String opponentName = computerPlayerOne.getName();
-            firstPlayerName = opponentName;
-
+            playerName = firstName + " " + lastName;
+            HumanPlayer humanPlayer = new HumanPlayer(playerName);
+            if (isFirstPlayer) {
+                player1 = humanPlayer;
+            } else {
+                player2 = humanPlayer;
+            }
+        } else if (choiceOfPlayer == 2) {
+            RandomPlayer randomPlayer = new RandomPlayer();
+            playerName = randomPlayer.getName();
+            if (isFirstPlayer) {
+                player1 = randomPlayer;
+            } else {
+                player2 = randomPlayer;
+            }
         }
-        return firstPlayerName;
+
+        return playerName;
     }
 
 }
