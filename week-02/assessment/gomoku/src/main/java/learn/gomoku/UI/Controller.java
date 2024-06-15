@@ -45,20 +45,20 @@ public class Controller {
 //    public static Player getGamePlayerTwo(Gomoku gamePlayers){
 //        return player2;
 //    }
-
-    public static void setHumanPlayer1(HumanPlayer humanPlayer1){
-        Controller.humanPlayer1 = humanPlayer1;
-    }
-    public static void setHumanPlayer2(HumanPlayer humanPlayer2){
-        Controller.humanPlayer2 = humanPlayer2;
-    }
-    public static void setComputerPlayer1(RandomPlayer computerPlayer) {
-        Controller.computerPlayer1 = computerPlayer;
-    }
-
-    public static void setComputerPlayer2(RandomPlayer computerPlayer1) {
-        Controller.computerPlayer2 = computerPlayer1;
-    }
+//STATIC TESTING, DO NOT USE STATIC WHEN UPDATING GAME IN REAL LIFE PURPOSES, STATIC ISNT IDEAL FOR ACTUAL GAMES
+//    public static void setHumanPlayer1(HumanPlayer humanPlayer1){
+//        Controller.humanPlayer1 = humanPlayer1;
+//    }
+//    public static void setHumanPlayer2(HumanPlayer humanPlayer2){
+//        Controller.humanPlayer2 = humanPlayer2;
+//    }
+//    public static void setComputerPlayer1(RandomPlayer computerPlayer) {
+//        Controller.computerPlayer1 = computerPlayer;
+//    }
+//
+//    public static void setComputerPlayer2(RandomPlayer computerPlayer1) {
+//        Controller.computerPlayer2 = computerPlayer1;
+//    }
 
     public static void playGame(){
         boolean gameIsOver = false;
@@ -80,15 +80,16 @@ public class Controller {
             String secondPlayerInGame = secondPlayerIsSelected(choiceOfSecondPlayer);
             System.out.println(secondPlayerInGame+ " is the Second Player!");
 
-            if(firstPlayerInGame.equals(computerPlayer1.getName()) && secondPlayerInGame.equals(computerPlayer2.getName())){
-                setGamePlayers(computerPlayer1, computerPlayer2);
-            } else if(firstPlayerInGame.equals(humanPlayer1.getName()) && secondPlayerInGame.equals(computerPlayer2.getName())){
-                setGamePlayers(humanPlayer1 , computerPlayer2);
-            }else if (firstPlayerInGame.equals(humanPlayer1.getName()) && secondPlayerInGame.equals(humanPlayer2.getName())){
-                setGamePlayers(humanPlayer1 , humanPlayer2);
-            } else if (firstPlayerInGame.equals(computerPlayer1.getName()) && secondPlayerInGame.equals(humanPlayer2.getName())) {
-                setGamePlayers(computerPlayer1 , humanPlayer2);
-            }
+            /// REFACTOR, THIS ISNT IDEAL DYNAMICALLY
+//            if(firstPlayerInGame.equals(computerPlayer1.getName()) && secondPlayerInGame.equals(computerPlayer2.getName())){
+//                setGamePlayers(computerPlayer1, computerPlayer2);
+//            } else if(firstPlayerInGame.equals(humanPlayer1.getName()) && secondPlayerInGame.equals(computerPlayer2.getName())){
+//                setGamePlayers(humanPlayer1 , computerPlayer2);
+//            }else if (firstPlayerInGame.equals(humanPlayer1.getName()) && secondPlayerInGame.equals(humanPlayer2.getName())){
+//                setGamePlayers(humanPlayer1 , humanPlayer2);
+//            } else if (firstPlayerInGame.equals(computerPlayer1.getName()) && secondPlayerInGame.equals(humanPlayer2.getName())) {
+//                setGamePlayers(computerPlayer1 , humanPlayer2);
+//            }
 
 
             if(firstPlayerInGame.equals(computerPlayer1.getName())){
