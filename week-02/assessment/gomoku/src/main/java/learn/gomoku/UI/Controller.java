@@ -91,27 +91,27 @@ public class Controller {
 //                setGamePlayers(computerPlayer1 , humanPlayer2);
 //            }
 
-
-            if(firstPlayerInGame.equals(computerPlayer1.getName())){
-                computerPlayer1.generateMove(stones);
-                boardWorld();
-                System.out.println(stones);
-                System.out.println("TEST");
-            }else if (firstPlayerInGame.equals(humanPlayer1.getName())){
-                System.out.println(firstPlayerInGame+", what row do you want to move to?(1-15");
-                Integer rowMove = Integer.parseInt(scanner.nextLine());
-                if(rowMove<0 || rowMove>15) {
-                    System.out.println("Invalid number");
-                }
-                System.out.println(firstPlayerInGame + ", what column do you want to move to?(1-15");
-                Integer columnMove = Integer.parseInt(scanner.nextLine());
-                if(columnMove<0 || columnMove>15) {
-                    System.out.println("Invalid number");
-                }
-                    Stone moves = new Stone(rowMove - 1, columnMove - 1, true);
-                    setStone(moves);
-                    System.out.println(getStone());
-                }
+// REFACTOR THIS IS NOT DYNAMIC, IT COULD WORK BUT GAME STATE NEEDS TO CHANGE
+//            if(firstPlayerInGame.equals(computerPlayer1.getName())){
+//                computerPlayer1.generateMove(stones);
+//                boardWorld();
+//                System.out.println(stones);
+//                System.out.println("TEST");
+//            }else if (firstPlayerInGame.equals(humanPlayer1.getName())){
+//                System.out.println(firstPlayerInGame+", what row do you want to move to?(1-15");
+//                Integer rowMove = Integer.parseInt(scanner.nextLine());
+//                if(rowMove<0 || rowMove>15) {
+//                    System.out.println("Invalid number");
+//                }
+//                System.out.println(firstPlayerInGame + ", what column do you want to move to?(1-15");
+//                Integer columnMove = Integer.parseInt(scanner.nextLine());
+//                if(columnMove<0 || columnMove>15) {
+//                    System.out.println("Invalid number");
+//                }
+//                    Stone moves = new Stone(rowMove - 1, columnMove - 1, true);
+//                    setStone(moves);
+//                    System.out.println(getStone());
+//                }
 
 
 
@@ -143,49 +143,49 @@ public class Controller {
 
     }
 
-
-    public static String firstPlayerIsSelected(int firstChoice) {
-        Scanner scanner = new Scanner(System.in);
-        String firstPlayerName = "";
-        if (firstChoice == 1 ) {
-            System.out.println("What is your first name?");
-            String firstName = scanner.nextLine();
-            System.out.println("What is your last name?");
-            String lastName = scanner.nextLine();
-            firstPlayerName = firstName+" "+ lastName;
-            HumanPlayer humanPlayerOne = new HumanPlayer(firstPlayerName);
-            setHumanPlayer1(humanPlayerOne);
-
-
-        } else if (firstChoice == 2) {
-            RandomPlayer computerPlayerOne = new RandomPlayer();
-            setComputerPlayer1(computerPlayerOne);
-            String opponentName = computerPlayerOne.getName();
-            firstPlayerName = opponentName;
-
-        }
-        return firstPlayerName;
-    }
-
-    public static String secondPlayerIsSelected(int choiceOf){
-        Scanner scanner = new Scanner(System.in);
-        String secondName = "";
-        if (choiceOf == 1) {
-            System.out.println("What is your first name?");
-            String firstName = scanner.nextLine();
-            System.out.println("What is your last name?");
-            String lastName = scanner.nextLine();
-            secondName=firstName + " "+ lastName;
-            HumanPlayer humanPlayerTwo = new HumanPlayer(secondName);
-            setHumanPlayer2(humanPlayerTwo);
-
-        } else if (choiceOf == 2) {
-            RandomPlayer computerPlayerTwo = new RandomPlayer();
-            setComputerPlayer2(computerPlayerTwo);
-            String opponentName = computerPlayerTwo.getName();
-            secondName = opponentName;
-
-        }
-        return secondName;
+// REFACTOR THIS, COULD BE CLEANER
+//    public static String firstPlayerIsSelected(int firstChoice) {
+//        Scanner scanner = new Scanner(System.in);
+//        String firstPlayerName = "";
+//        if (firstChoice == 1 ) {
+//            System.out.println("What is your first name?");
+//            String firstName = scanner.nextLine();
+//            System.out.println("What is your last name?");
+//            String lastName = scanner.nextLine();
+//            firstPlayerName = firstName+" "+ lastName;
+//            HumanPlayer humanPlayerOne = new HumanPlayer(firstPlayerName);
+//            setHumanPlayer1(humanPlayerOne);
+//
+//
+//        } else if (firstChoice == 2) {
+//            RandomPlayer computerPlayerOne = new RandomPlayer();
+//            setComputerPlayer1(computerPlayerOne);
+//            String opponentName = computerPlayerOne.getName();
+//            firstPlayerName = opponentName;
+//
+//        }
+//        return firstPlayerName;
+//    }
+// UNECCESARY CODE, COULD IMPLEMENT IN METHOD ONE, SELECT PLAYER COMBINE METHOD ABOVE AND BELOW
+//    public static String secondPlayerIsSelected(int choiceOf){
+//        Scanner scanner = new Scanner(System.in);
+//        String secondName = "";
+//        if (choiceOf == 1) {
+//            System.out.println("What is your first name?");
+//            String firstName = scanner.nextLine();
+//            System.out.println("What is your last name?");
+//            String lastName = scanner.nextLine();
+//            secondName=firstName + " "+ lastName;
+//            HumanPlayer humanPlayerTwo = new HumanPlayer(secondName);
+//            setHumanPlayer2(humanPlayerTwo);
+//
+//        } else if (choiceOf == 2) {
+//            RandomPlayer computerPlayerTwo = new RandomPlayer();
+//            setComputerPlayer2(computerPlayerTwo);
+//            String opponentName = computerPlayerTwo.getName();
+//            secondName = opponentName;
+//
+//        }
+//        return secondName;
     }
 }
