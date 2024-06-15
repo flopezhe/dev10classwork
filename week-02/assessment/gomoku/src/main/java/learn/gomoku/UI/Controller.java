@@ -27,32 +27,40 @@ public class Controller {
         boolean gameIsOver = false;
         Scanner scanner = new Scanner(System.in);
 
-        do {
-            System.out.println("Please select your first player!");
-            System.out.println("1. Human Player");
-            System.out.println("2. Random Player");
-            Integer choiceOfFirstPlayer = Integer.parseInt(scanner.nextLine());
-            String firstPlayerInGame = playerIsSelected(choiceOfFirstPlayer, true);
+        System.out.println("Please select your first player!");
+        System.out.println("1. Human Player");
+        System.out.println("2. Random Player");
+        Integer choiceOfFirstPlayer = Integer.parseInt(scanner.nextLine());
+        String firstPlayerInGame = playerIsSelected(choiceOfFirstPlayer, true);
 
-            System.out.println(firstPlayerInGame + " is the First Player!");
+        System.out.println(firstPlayerInGame + " is the First Player!");
 
-            System.out.println("Please select your second player!");
-            System.out.println("1. Human Player");
-            System.out.println("2. Random Player");
-            Integer choiceOfSecondPlayer = Integer.parseInt(scanner.nextLine());
-            String secondPlayerInGame = playerIsSelected(choiceOfSecondPlayer, false);
-            System.out.println(secondPlayerInGame+ " is the Second Player!");
+        System.out.println("Please select your second player!");
+        System.out.println("1. Human Player");
+        System.out.println("2. Random Player");
+        Integer choiceOfSecondPlayer = Integer.parseInt(scanner.nextLine());
+        String secondPlayerInGame = playerIsSelected(choiceOfSecondPlayer, false);
+        System.out.println(secondPlayerInGame + " is the Second Player!");
 
-            gamePlayers = new Gomoku(player1, player2);
-            boardWorld();
-            System.out.println(player2.getName() + " it is your turn first");
+        gamePlayers = new Gomoku(player1, player2);
 
+    }
 
+    private static Stone getHumanPlayerMove(Scanner scanner, boolean isBlack) {
+        int row, col;
+        while (true) {
+            System.out.println("Enter row (1-15):");
+            row = Integer.parseInt(scanner.nextLine())-1;
+            System.out.println("Enter column (1-15):");
+            col = Integer.parseInt(scanner.nextLine()) - 1;
 
-
-
-        }while(!gameIsOver);
-
+            if (row >= 0 && row < WIDTH && col >= 0 && col < WIDTH) {
+                break;
+            } else {
+                System.out.println("Invalid move. Please enter values between 1 and 15.");
+            }
+        }
+        return new Stone(row, col, isBlack);
     }
 
     public static void boardWorld() {
@@ -64,7 +72,7 @@ public class Controller {
         }
 
         for (Stone stone : gamePlayers.getStones()) {
-            board[stone.getRow()-1][stone.getColumn()-1] = stone.isBlack() ? 'B' : 'W';
+            board[stone.getRow()][stone.getColumn()] = stone.isBlack() ? 'B' : 'W';
         }
 
         System.out.println("  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15");
