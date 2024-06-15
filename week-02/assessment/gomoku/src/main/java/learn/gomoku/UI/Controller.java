@@ -1,26 +1,30 @@
 package learn.gomoku.UI;
 
 import learn.gomoku.game.Gomoku;
+import learn.gomoku.game.Result;
 import learn.gomoku.game.Stone;
 import learn.gomoku.players.HumanPlayer;
 import learn.gomoku.players.Player;
 import learn.gomoku.players.RandomPlayer;
 
-import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Controller {
 
+
+    private final static int WIDTH = Gomoku.WIDTH;
     public static Stone stone = new Stone(0,0,true);
     public static RandomPlayer computerPlayer1 = new RandomPlayer();
     public static RandomPlayer computerPlayer2 = new RandomPlayer();
     public static HumanPlayer humanPlayer1 ;
     public static HumanPlayer humanPlayer2 ;
-    public static Gomoku gamePlayers = new Gomoku(humanPlayer1, humanPlayer2);
+    public static Player player1;
+    public static Player player2;
+    public static Gomoku gamePlayers = new Gomoku(player1, player2);
+    public static List<Stone> stones = new ArrayList<>();
 
     public static Stone getStone() {
         return stone;
@@ -30,10 +34,17 @@ public class Controller {
         Controller.stone = stone;
     }
 
-    public static void setGamePlayers(Gomoku gamePlayers) {
-        Controller.gamePlayers = gamePlayers;
+    public static void setGamePlayers(Player player1, Player player2) {
+        Controller.gamePlayers = new Gomoku(player1, player2);
     }
 
+
+//    public static Player getGamePlayerOne(Gomoku gamePlayers) {
+//        return player1;
+//    }
+//    public static Player getGamePlayerTwo(Gomoku gamePlayers){
+//        return player2;
+//    }
 
     public static void setHumanPlayer1(HumanPlayer humanPlayer1){
         Controller.humanPlayer1 = humanPlayer1;
@@ -51,7 +62,6 @@ public class Controller {
 
     public static void playGame(){
         boolean gameIsOver = false;
-
         Scanner scanner = new Scanner(System.in);
 
         do {
@@ -71,26 +81,67 @@ public class Controller {
             System.out.println(secondPlayerInGame+ " is the Second Player!");
 
             if(firstPlayerInGame.equals(computerPlayer1.getName()) && secondPlayerInGame.equals(computerPlayer2.getName())){
-                Gomoku gamePlayersOfficial = new Gomoku(computerPlayer1, computerPlayer2);
-                setGamePlayers(gamePlayersOfficial);
+                setGamePlayers(computerPlayer1, computerPlayer2);
             } else if(firstPlayerInGame.equals(humanPlayer1.getName()) && secondPlayerInGame.equals(computerPlayer2.getName())){
-                Gomoku gamePlayersOfficial = new Gomoku(humanPlayer1 , computerPlayer2);
-                setGamePlayers(gamePlayersOfficial);
+                setGamePlayers(humanPlayer1 , computerPlayer2);
             }else if (firstPlayerInGame.equals(humanPlayer1.getName()) && secondPlayerInGame.equals(humanPlayer2.getName())){
-                Gomoku gamePlayersOfficial = new Gomoku(humanPlayer1 , humanPlayer2);
-                setGamePlayers(gamePlayersOfficial);
+                setGamePlayers(humanPlayer1 , humanPlayer2);
             } else if (firstPlayerInGame.equals(computerPlayer1.getName()) && secondPlayerInGame.equals(humanPlayer2.getName())) {
-                Gomoku gamePlayersOfficial = new Gomoku(computerPlayer1 , humanPlayer2);
-                setGamePlayers(gamePlayersOfficial);
+                setGamePlayers(computerPlayer1 , humanPlayer2);
             }
 
-            System.out.println(getStone());
+
+            if(firstPlayerInGame.equals(computerPlayer1.getName())){
+                computerPlayer1.generateMove(stones);
+                boardWorld();
+                System.out.println(stones);
+                System.out.println("TEST");
+            }else if (firstPlayerInGame.equals(humanPlayer1.getName())){
+                System.out.println(firstPlayerInGame+", what row do you want to move to?(1-15");
+                Integer rowMove = Integer.parseInt(scanner.nextLine());
+                if(rowMove<0 || rowMove>15) {
+                    System.out.println("Invalid number");
+                }
+                System.out.println(firstPlayerInGame + ", what column do you want to move to?(1-15");
+                Integer columnMove = Integer.parseInt(scanner.nextLine());
+                if(columnMove<0 || columnMove>15) {
+                    System.out.println("Invalid number");
+                }
+                    Stone moves = new Stone(rowMove - 1, columnMove - 1, true);
+                    setStone(moves);
+                    System.out.println(getStone());
+                }
 
 
 
         }while(!gameIsOver);
 
     }
+
+    public static void boardWorld() {
+        char[][] board = new char[WIDTH][WIDTH];
+        for (char[] row : board) {
+            for (int i = 0; i < WIDTH; i++) {
+                row[i] = '-';
+            }
+        }
+
+        for (Stone stone : gamePlayers.getStones()) {
+            board[stone.getRow()][stone.getColumn()] = stone.isBlack() ? 'B' : 'W';
+        }
+
+        System.out.println("  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15");
+        for (int i = 0; i < WIDTH; i++) {
+            System.out.printf("%2d ", i + 1);
+            for (int j = 0; j < WIDTH; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+
+        }
+
+    }
+
 
     public static String firstPlayerIsSelected(int firstChoice) {
         Scanner scanner = new Scanner(System.in);
@@ -125,14 +176,13 @@ public class Controller {
             String lastName = scanner.nextLine();
             secondName=firstName + " "+ lastName;
             HumanPlayer humanPlayerTwo = new HumanPlayer(secondName);
-            setHumanPlayer1(humanPlayerTwo);
+            setHumanPlayer2(humanPlayerTwo);
 
         } else if (choiceOf == 2) {
             RandomPlayer computerPlayerTwo = new RandomPlayer();
             setComputerPlayer2(computerPlayerTwo);
             String opponentName = computerPlayerTwo.getName();
             secondName = opponentName;
-
 
         }
         return secondName;
