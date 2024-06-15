@@ -32,7 +32,7 @@ public class Controller {
             System.out.println("1. Human Player");
             System.out.println("2. Random Player");
             Integer choiceOfFirstPlayer = Integer.parseInt(scanner.nextLine());
-            String firstPlayerInGame = firstPlayerIsSelected(choiceOfFirstPlayer);
+            String firstPlayerInGame =
 
             System.out.println(firstPlayerInGame + " is the First Player!");
 
@@ -43,38 +43,7 @@ public class Controller {
             String secondPlayerInGame = secondPlayerIsSelected(choiceOfSecondPlayer);
             System.out.println(secondPlayerInGame+ " is the Second Player!");
 
-            /// REFACTOR, THIS ISNT IDEAL DYNAMICALLY
-//            if(firstPlayerInGame.equals(computerPlayer1.getName()) && secondPlayerInGame.equals(computerPlayer2.getName())){
-//                setGamePlayers(computerPlayer1, computerPlayer2);
-//            } else if(firstPlayerInGame.equals(humanPlayer1.getName()) && secondPlayerInGame.equals(computerPlayer2.getName())){
-//                setGamePlayers(humanPlayer1 , computerPlayer2);
-//            }else if (firstPlayerInGame.equals(humanPlayer1.getName()) && secondPlayerInGame.equals(humanPlayer2.getName())){
-//                setGamePlayers(humanPlayer1 , humanPlayer2);
-//            } else if (firstPlayerInGame.equals(computerPlayer1.getName()) && secondPlayerInGame.equals(humanPlayer2.getName())) {
-//                setGamePlayers(computerPlayer1 , humanPlayer2);
-//            }
 
-// REFACTOR THIS IS NOT DYNAMIC, IT COULD WORK BUT GAME STATE NEEDS TO CHANGE
-//            if(firstPlayerInGame.equals(computerPlayer1.getName())){
-//                computerPlayer1.generateMove(stones);
-//                boardWorld();
-//                System.out.println(stones);
-//                System.out.println("TEST");
-//            }else if (firstPlayerInGame.equals(humanPlayer1.getName())){
-//                System.out.println(firstPlayerInGame+", what row do you want to move to?(1-15");
-//                Integer rowMove = Integer.parseInt(scanner.nextLine());
-//                if(rowMove<0 || rowMove>15) {
-//                    System.out.println("Invalid number");
-//                }
-//                System.out.println(firstPlayerInGame + ", what column do you want to move to?(1-15");
-//                Integer columnMove = Integer.parseInt(scanner.nextLine());
-//                if(columnMove<0 || columnMove>15) {
-//                    System.out.println("Invalid number");
-//                }
-//                    Stone moves = new Stone(rowMove - 1, columnMove - 1, true);
-//                    setStone(moves);
-//                    System.out.println(getStone());
-//                }
 
 
 
