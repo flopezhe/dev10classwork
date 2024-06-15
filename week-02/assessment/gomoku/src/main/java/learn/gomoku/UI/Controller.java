@@ -75,49 +75,28 @@ public class Controller {
 
     }
 
-// REFACTOR THIS, COULD BE CLEANER
-//    public static String firstPlayerIsSelected(int firstChoice) {
-//        Scanner scanner = new Scanner(System.in);
-//        String firstPlayerName = "";
-//        if (firstChoice == 1 ) {
-//            System.out.println("What is your first name?");
-//            String firstName = scanner.nextLine();
-//            System.out.println("What is your last name?");
-//            String lastName = scanner.nextLine();
-//            firstPlayerName = firstName+" "+ lastName;
-//            HumanPlayer humanPlayerOne = new HumanPlayer(firstPlayerName);
-//            setHumanPlayer1(humanPlayerOne);
-//
-//
-//        } else if (firstChoice == 2) {
-//            RandomPlayer computerPlayerOne = new RandomPlayer();
-//            setComputerPlayer1(computerPlayerOne);
-//            String opponentName = computerPlayerOne.getName();
-//            firstPlayerName = opponentName;
-//
-//        }
-//        return firstPlayerName;
-//    }
-// UNECCESARY CODE, COULD IMPLEMENT IN METHOD ONE, SELECT PLAYER COMBINE METHOD ABOVE AND BELOW
-//    public static String secondPlayerIsSelected(int choiceOf){
-//        Scanner scanner = new Scanner(System.in);
-//        String secondName = "";
-//        if (choiceOf == 1) {
-//            System.out.println("What is your first name?");
-//            String firstName = scanner.nextLine();
-//            System.out.println("What is your last name?");
-//            String lastName = scanner.nextLine();
-//            secondName=firstName + " "+ lastName;
-//            HumanPlayer humanPlayerTwo = new HumanPlayer(secondName);
-//            setHumanPlayer2(humanPlayerTwo);
-//
-//        } else if (choiceOf == 2) {
-//            RandomPlayer computerPlayerTwo = new RandomPlayer();
-//            setComputerPlayer2(computerPlayerTwo);
-//            String opponentName = computerPlayerTwo.getName();
-//            secondName = opponentName;
-//
-//        }
-//        return secondName;
+
+    public static String firstPlayerIsSelected(int firstChoice) {
+        Scanner scanner = new Scanner(System.in);
+        String firstPlayerName = "";
+        if (firstChoice == 1 ) {
+            System.out.println("What is your first name?");
+            String firstName = scanner.nextLine();
+            System.out.println("What is your last name?");
+            String lastName = scanner.nextLine();
+            firstPlayerName = firstName+" "+ lastName;
+            HumanPlayer humanPlayerOne = new HumanPlayer(firstPlayerName);
+            setHumanPlayer1(humanPlayerOne);
+
+
+        } else if (firstChoice == 2) {
+            RandomPlayer computerPlayerOne = new RandomPlayer();
+            setComputerPlayer1(computerPlayerOne);
+            String opponentName = computerPlayerOne.getName();
+            firstPlayerName = opponentName;
+
+        }
+        return firstPlayerName;
     }
+
 }
