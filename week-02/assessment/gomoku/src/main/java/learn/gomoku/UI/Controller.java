@@ -16,49 +16,12 @@ public class Controller {
 
 
     private final static int WIDTH = Gomoku.WIDTH;
-    public static Stone stone = new Stone(0,0,true);
-    public static RandomPlayer computerPlayer1 = new RandomPlayer();
-    public static RandomPlayer computerPlayer2 = new RandomPlayer();
-    public static HumanPlayer humanPlayer1 ;
-    public static HumanPlayer humanPlayer2 ;
     public static Player player1;
     public static Player player2;
     public static Gomoku gamePlayers = new Gomoku(player1, player2);
     public static List<Stone> stones = new ArrayList<>();
 
-    public static Stone getStone() {
-        return stone;
-    }
 
-    public static void setStone(Stone stone) {
-        Controller.stone = stone;
-    }
-
-    public static void setGamePlayers(Player player1, Player player2) {
-        Controller.gamePlayers = new Gomoku(player1, player2);
-    }
-
-
-//    public static Player getGamePlayerOne(Gomoku gamePlayers) {
-//        return player1;
-//    }
-//    public static Player getGamePlayerTwo(Gomoku gamePlayers){
-//        return player2;
-//    }
-//STATIC TESTING, DO NOT USE STATIC WHEN UPDATING GAME IN REAL LIFE PURPOSES, STATIC ISNT IDEAL FOR ACTUAL GAMES
-//    public static void setHumanPlayer1(HumanPlayer humanPlayer1){
-//        Controller.humanPlayer1 = humanPlayer1;
-//    }
-//    public static void setHumanPlayer2(HumanPlayer humanPlayer2){
-//        Controller.humanPlayer2 = humanPlayer2;
-//    }
-//    public static void setComputerPlayer1(RandomPlayer computerPlayer) {
-//        Controller.computerPlayer1 = computerPlayer;
-//    }
-//
-//    public static void setComputerPlayer2(RandomPlayer computerPlayer1) {
-//        Controller.computerPlayer2 = computerPlayer1;
-//    }
 
     public static void playGame(){
         boolean gameIsOver = false;
