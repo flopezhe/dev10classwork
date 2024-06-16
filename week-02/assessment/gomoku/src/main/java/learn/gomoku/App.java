@@ -14,7 +14,6 @@ public class App {
         String welcomeIntro = "Welcome to Gomoku!";
         System.out.println(welcomeIntro);
         System.out.println("=".repeat(welcomeIntro.length()));
-//        boolean gameIsOver = false;
 
         playGame();
 
