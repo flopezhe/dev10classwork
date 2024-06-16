@@ -13,7 +13,6 @@ import java.util.Scanner;
 
 public class Controller {
 
-
     private final static int WIDTH = Gomoku.WIDTH;
     public static Player player1;
     public static Player player2;
@@ -89,7 +88,6 @@ public class Controller {
         } while (playAgain);
 
         System.out.println("Thank you for playing Gomoku!");
-
     }
 
     private static Stone getHumanPlayerMove(Scanner scanner, boolean isBlack) {
@@ -130,7 +128,6 @@ public class Controller {
             System.out.println();
 
         }
-
     }
 
     public static String playerIsSelected(int choiceOfPlayer, boolean isFirstPlayer) {
@@ -160,7 +157,6 @@ public class Controller {
                 player2 = randomPlayer;
             }
         }
-
         return playerName;
     }
 
