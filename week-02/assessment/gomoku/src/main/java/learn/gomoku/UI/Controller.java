@@ -18,7 +18,7 @@ public class Controller {
     public static Player player2;
     public static Gomoku gamePlayers;
 
-    public static List<Stone> stones = new ArrayList<>();
+//    public static List<Stone> stones = new ArrayList<>();
     private static boolean isPlayer1Human;
     private static boolean isPlayer2Human;
 
@@ -74,24 +74,32 @@ public class Controller {
                 System.out.println("It's a draw!");
             }
 
-            System.out.println("Do you want to play again? (y/n)");
-            String response = scanner.nextLine();
-            if (response.equalsIgnoreCase("y")) {
-                playAgain = true;
-            } else if (response.equalsIgnoreCase("n")) {
-                playAgain = false;
-            } else {
-                System.out.println("Invalid response. TOO BAD");
-                playAgain = false;
-            }
+            playAgain = isPlayAgain(scanner);
 
         } while (playAgain);
 
         System.out.println("Thank you for playing Gomoku!");
     }
 
+    // USED INTELLIJ EXTRACT METHOD, I BELIEVE ITS WORKING RIGHT LAST CODE CHANGED MON 12 AM NO ISSUES
+    private static boolean isPlayAgain(Scanner scanner) {
+        boolean playAgain;
+        System.out.println("Do you want to play again? (y/n)");
+        String response = scanner.nextLine();
+        if (response.equalsIgnoreCase("y")) {
+            playAgain = true;
+        } else if (response.equalsIgnoreCase("n")) {
+            playAgain = false;
+        } else {
+            System.out.println("Invalid response. TOO BAD");
+            playAgain = false;
+        }
+        return playAgain;
+    }
+
     private static Stone getHumanPlayerMove(Scanner scanner, boolean isBlack) {
-        int row, col;
+        int row;
+        int col;
         while (true) {
             System.out.println("Enter row (1-15):");
             row = Integer.parseInt(scanner.nextLine())-1;
