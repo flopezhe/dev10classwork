@@ -7,8 +7,8 @@ import learn.gomoku.players.HumanPlayer;
 import learn.gomoku.players.Player;
 import learn.gomoku.players.RandomPlayer;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
@@ -19,12 +19,12 @@ public class Controller {
     public static Gomoku gamePlayers;
 
 //    public static List<Stone> stones = new ArrayList<>();
-    private static boolean isPlayer1Human;
-    private static boolean isPlayer2Human;
+//    private static boolean isPlayer1Human;
+//    private static boolean isPlayer2Human;
 
 
 
-    public static void playGame(){
+    public void playGame(){
 
         Scanner scanner = new Scanner(System.in);
 
@@ -52,11 +52,9 @@ public class Controller {
             while (!gamePlayers.isOver()) {
                 boardWorld();
                 System.out.println(currentPlayer.getName() + "'s turn");
-                Stone move;
-                if ((currentPlayer == player1 && isPlayer1Human) || (currentPlayer == player2 && isPlayer2Human)) {
+                Stone move = currentPlayer.generateMove(gamePlayers.getStones());
+                if (move == null) {
                     move = getHumanPlayerMove(scanner, gamePlayers.isBlacksTurn());
-                } else {
-                    move = currentPlayer.generateMove(gamePlayers.getStones());
                 }
 
                 Result result = gamePlayers.place(move);
@@ -81,23 +79,22 @@ public class Controller {
         System.out.println("Thank you for playing Gomoku!");
     }
 
+    //MAKE TO OWN CLASS FOR CLEAN WORK CODE
     // USED INTELLIJ EXTRACT METHOD, I BELIEVE ITS WORKING RIGHT LAST CODE CHANGED MON 12 AM NO ISSUES
-    private static boolean isPlayAgain(Scanner scanner) {
+    private boolean isPlayAgain(Scanner scanner) {
         boolean playAgain;
         System.out.println("Do you want to play again? (y/n)");
         String response = scanner.nextLine();
         if (response.equalsIgnoreCase("y")) {
             playAgain = true;
-        } else if (response.equalsIgnoreCase("n")) {
-            playAgain = false;
         } else {
-            System.out.println("Invalid response. TOO BAD");
             playAgain = false;
         }
         return playAgain;
     }
 
-    private static Stone getHumanPlayerMove(Scanner scanner, boolean isBlack) {
+    // MAKE TO OWN CLASS FOR CLEAN WORK CODE
+    private Stone getHumanPlayerMove(Scanner scanner, boolean isBlack) {
         int row;
         int col;
         while (true) {
@@ -115,7 +112,8 @@ public class Controller {
         return new Stone(row, col, isBlack);
     }
 
-    public static void boardWorld() {
+    //MAKE TO OWN CLASS FOR CLEAN WORK CODE
+    private void boardWorld() {
         char[][] board = new char[WIDTH][WIDTH];
         for (char[] row : board) {
             for (int i = 0; i < WIDTH; i++) {
@@ -127,18 +125,20 @@ public class Controller {
             board[stone.getRow()][stone.getColumn()] = stone.isBlack() ? 'B' : 'W';
         }
 
-        System.out.println("  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15");
+        System.out.println("  01 02 03 04 05 06 07 08 09 10 11 12 13 14 15");
         for (int i = 0; i < WIDTH; i++) {
             System.out.printf("%2d ", i+1);
             for (int j = 0; j < WIDTH; j++) {
-                System.out.print(board[i][j] + " ");
+                System.out.print(board[i][j] + "  ");
             }
             System.out.println();
 
         }
     }
 
-    public static String playerIsSelected(int choiceOfPlayer, boolean isFirstPlayer) {
+    //MAKE TO OWN CLASS FOR CLEAN WORK CODE
+    // make private , should remove static
+    private String playerIsSelected(int choiceOfPlayer, boolean isFirstPlayer) {
         Scanner scanner = new Scanner(System.in);
         String playerName = "";
 
@@ -151,10 +151,10 @@ public class Controller {
             HumanPlayer humanPlayer = new HumanPlayer(playerName);
             if (isFirstPlayer) {
                 player1 = humanPlayer;
-                isPlayer1Human= true;
+
             } else {
                 player2 = humanPlayer;
-                isPlayer2Human=true;
+
             }
         } else if (choiceOfPlayer == 2) {
             RandomPlayer randomPlayer = new RandomPlayer();
