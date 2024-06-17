@@ -52,4 +52,6 @@ public class RandomPlayer implements Player {
                 random.nextInt(Gomoku.WIDTH),
                 isBlack);
     }
+
+
 }
