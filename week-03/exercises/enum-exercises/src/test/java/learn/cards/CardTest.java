@@ -13,28 +13,28 @@ class CardTest {
     @Test
     void shouldNameTwoOfHearts() {
         // TODO: instantiate Card with arguments.
-        Card card = new Card();
+        Card card = new Card(Rank.TWO, Suit.HEARTS);
         assertEquals("2 of Hearts", card.getName());
     }
 
     @Test
     void shouldNameQueenOfDiamonds() {
         // TODO: instantiate Card with arguments.
-        Card card = new Card();
+        Card card = new Card(Rank.QUEEN, Suit.DIAMONDS);
         assertEquals("Queen of Diamonds", card.getName());
     }
 
     @Test
     void shouldNameTenOfClubs() {
         // TODO: instantiate Card with arguments.
-        Card card = new Card();
+        Card card = new Card(Rank.TEN, Suit.CLUBS);
         assertEquals("10 of Clubs", card.getName());
     }
 
     @Test
     void shouldNameAceOfSpades() {
         // TODO: instantiate Card with arguments.
-        Card card = new Card();
+        Card card = new Card(Rank.ACE, Suit.SPADES);
         assertEquals("Ace of Spades", card.getName());
     }
 }

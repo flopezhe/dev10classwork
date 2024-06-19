@@ -37,7 +37,6 @@ public class Controller {
             String firstPlayerInGame = playerIsSelected(choiceOfFirstPlayer, true);
 
             System.out.println(firstPlayerInGame + " is the First Player!");
-
             System.out.println("Please select your second player!");
             System.out.println("1. Human Player");
             System.out.println("2. Random Player");
@@ -151,7 +150,6 @@ public class Controller {
             HumanPlayer humanPlayer = new HumanPlayer(playerName);
             if (isFirstPlayer) {
                 player1 = humanPlayer;
-
             } else {
                 player2 = humanPlayer;
 
