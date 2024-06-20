@@ -38,6 +38,7 @@ class EncounterFileRepositoryTest {
         assertArrayEquals(testEncounters, actual);
     }
 
+
     @Test
     void shouldAdd() throws DataAccessException {
         Encounter encounter = new Encounter();
@@ -52,6 +53,15 @@ class EncounterFileRepositoryTest {
 
         assertNotNull(actual);
         assertEquals(4, actual.getEncounterId());
+    }
+
+    @Test
+    void findByTypes() throws DataAccessException{
+        List<Encounter> actual = repository.findByType(EncounterType.UFO);
+
+        assertNotNull(actual);
+
+        assertEquals(1, actual.size());
     }
 
 }
