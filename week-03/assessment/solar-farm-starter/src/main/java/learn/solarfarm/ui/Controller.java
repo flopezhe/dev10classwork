@@ -71,7 +71,7 @@ public class Controller {
     }
 
     private void updateSolarPanel() throws DataAccessException {
-        view.displayHeader("Update a Panel");
+
         // TODO: grab the section, row, and column from the view.
         // TODO: use the service to fetch a solar panel by its key (section, row, column).
         // TODO: complete update

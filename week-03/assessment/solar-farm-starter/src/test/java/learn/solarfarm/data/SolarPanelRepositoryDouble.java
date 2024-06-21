@@ -41,6 +41,11 @@ public class SolarPanelRepositoryDouble implements SolarPanelRepository {
         return solarPanel;
     }
 
+    @Override
+    public SolarPanel updateFile(SolarPanel solarPanel) throws DataAccessException {
+        return null;
+    }
+
     // TODO: add an update method (must match with interface)
 
     // TODO: add a delete method (must match with interface)
