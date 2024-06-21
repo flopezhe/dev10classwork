@@ -16,4 +16,5 @@ public interface SolarPanelRepository {
     boolean updateFile(SolarPanel solarPanel) throws DataAccessException;
 
     // TODO: add a delete method
+    boolean deleteById(int solarPanelId) throws DataAccessException;
 }

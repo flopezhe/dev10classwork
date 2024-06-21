@@ -44,8 +44,34 @@ public class SolarPanelService {
     }
 
     // TODO: add an update method
+    public SolarPanelResult update(SolarPanel solarPanel) throws DataAccessException {
+        SolarPanelResult result = validate(solarPanel);
+        if(!result.isSuccess()){
+            return result;
+        }
+
+        if (solarPanel.getId()<=0){
+            result.addErrorMessage("Existing game must not have id set.");
+            return result;
+        }
+
+        if(!repository.updateFile(solarPanel)){
+            result.addErrorMessage("Solar panel %s not found.", solarPanel.getId());
+        }
+
+        return result;
+    }
 
     // TODO: add a delete method (possibly deleteById?)
+    public SolarPanelResult deleteById(int solarPanelId) throws DataAccessException {
+        SolarPanelResult result = new SolarPanelResult();
+        boolean success = repository.deleteById(solarPanelId);
+        if(!success){
+            result.addErrorMessage(String.format("Solar Panel %s not found.", solarPanelId));
+        }
+        return result;
+    }
+
 
     private SolarPanelResult validate(SolarPanel solarPanel) throws DataAccessException {
         SolarPanelResult result = new SolarPanelResult();

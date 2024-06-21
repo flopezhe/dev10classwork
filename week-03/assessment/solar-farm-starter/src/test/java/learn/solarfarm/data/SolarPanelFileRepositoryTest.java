@@ -118,4 +118,5 @@ class SolarPanelFileRepositoryTest {
     void deleteById() throws DataAccessException {
         // TODO: complete
     }
+
 }
