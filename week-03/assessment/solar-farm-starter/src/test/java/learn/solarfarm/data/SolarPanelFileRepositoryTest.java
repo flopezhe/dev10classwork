@@ -12,8 +12,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class SolarPanelFileRepositoryTest {
     static final String SEED_FILE_PATH = "./data/solarfarm-seed.txt";
@@ -112,11 +111,27 @@ class SolarPanelFileRepositoryTest {
     @Test
     void update() throws DataAccessException {
         // TODO: complete
+        SolarPanel solarPanel = new SolarPanel(1,"1",1,1,2020,Material.POLY_SI, true);
+        solarPanel.setYearInstalled(2021);
+        assertTrue(repository.updateFile(solarPanel));
+        assertEquals(2021, solarPanel.getYearInstalled());
+
+        solarPanel.setTracking(false);
+        assertTrue(repository.updateFile(solarPanel));
+        assertFalse(solarPanel.isTracking());
+
+
+
+
     }
 
     @Test
     void deleteById() throws DataAccessException {
         // TODO: complete
+        SolarPanel solarPanel = new SolarPanel(1,"1",1,1,2020,Material.POLY_SI, true);
+        assertTrue(repository.deleteById(1));
+
+
     }
 
 }

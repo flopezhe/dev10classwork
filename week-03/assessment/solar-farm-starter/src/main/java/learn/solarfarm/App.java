@@ -8,7 +8,8 @@ import learn.solarfarm.ui.Controller;
 import learn.solarfarm.ui.View;
 
 import java.io.IOException;
-
+//Row Col Year Material Tracking
+//  1   1 2021     A_SI      yes
 public class App {
 
     public static void main(String[] args) {

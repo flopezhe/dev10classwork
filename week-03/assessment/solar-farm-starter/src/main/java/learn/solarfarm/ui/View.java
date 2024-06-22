@@ -98,80 +98,41 @@ public class View {
 
 
     public void updatePanel(SolarPanel solarPanel) {
-        String yrInstalled = "";
-        int yearInstalled = 0;
-        do {
-            yrInstalled = (String.format("Year Installed (%s) \nNew Year", solarPanel.getYearInstalled()));
-            if (!yrInstalled.isBlank()) {
-                try {
-                    yearInstalled = io.readInt(yrInstalled, 0, 2024);
-                    solarPanel.setYearInstalled(yearInstalled);
-                } catch (NumberFormatException ex) {
-                    System.out.println("Year must be current or previous years");
-                }
-            }
-        } while (!yrInstalled.isBlank() && yearInstalled == 0);
+//        String yrInstalled = "";
+//        int yearInstalled = 0;
+//        do {
+//            yrInstalled = (String.format("Year Installed (%s) \nNew Year", solarPanel.getYearInstalled()));
+//            if (!yrInstalled.isBlank()) {
+//                try {
+//                    yearInstalled = io.readInt(yrInstalled, 0, 2024);
+//                    solarPanel.setYearInstalled(yearInstalled);
+//                } catch (NumberFormatException ex) {
+//                    System.out.println("Year must be current or previous years");
+//                }
+//            }
+//        } while (!yrInstalled.isBlank() && yearInstalled == 0);
+        solarPanel.setYearInstalled(io.readInt(String.format("Year Installed (%s) \nNew Year", solarPanel.getYearInstalled()), 0, 2024));
 
-        String mats = "";
-        int opt = 0;
-        do{
-            mats = (String.format("Material (%s) \nNew Material:", solarPanel.getMaterial());
-            if(!mats.isBlank()){
-                try{
-                    Material option = readMaterial("New Material: ");
-                    option = io.readEnum(option, Material.class);
-                }catch (NumberFormatException ex){
-                    System.out.println("Material option must be 1-5");
-                }
-            }
-        } while(!mats.isBlank() && opt==0);
+        solarPanel.setMaterial(io.readEnum(String.format("Material (%s)", solarPanel.getMaterial()), Material.class));
 
-
-        String tracks = "";
-        boolean isTracking = false;
-        do {
-            tracks = readString(String.format("Current Tracking Status (%s) \nPress [Enter] to keep original value. \nOtherwise, Enter [ y or n] if the panel is tracking: ", solarPanel.isTracking()));
-            if (!tracks.isBlank()) {
-                try {
-                    isTracking = io.readBoolean(" Are you sure you want to "+ tracks + "?");
-                    solarPanel.setTracking(isTracking);
-                } catch (NumberFormatException ex) {
-                    System.out.println("Must be y or n.");
-                }
-            }
-        } while (!tracks.isBlank() && isTracking == false);
+        solarPanel.setTracking(io.readBoolean(String.format("Tracking (%s) \nEnter (y or n) to update", solarPanel.isTracking())));
+//        String tracks = "";
+//        boolean isTracking = false;
+//        do {
+//            tracks = String.format("Current Tracking Status (%s) \nPress [Enter] to keep original value. \nIs it tracked? [ y or n] ", solarPanel.isTracking());
+//            if (!tracks.isBlank()) {
+//                try {
+//                    isTracking = io.readBoolean(tracks);
+//                    solarPanel.setTracking(isTracking);
+//                } catch (NumberFormatException ex) {
+//                    System.out.println("Must be y or n.");
+//                }
+//            }
+//        } while (tracks.isBlank() && isTracking==false);
 
     }
 
-    private Material readMaterial(String prompt) {
-        Material result = Material.POLY_SI;
-        System.out.println("1. POLY_SI");
-        System.out.println("2. MONO_SI");
-        System.out.println("3. A_SI");
-        System.out.println("4. CD_TE");
-        System.out.println("5. CIGS");
 
-        int choice = io.readInt("Choose [1-5]", 1, 5);
-        switch (choice) {
-            case 1:
-                result = Material.POLY_SI;
-                break;
-            case 2:
-                result = Material.MONO_SI;
-                break;
-            case 3:
-                result = Material.A_SI;
-                break;
-            case 4:
-                result = Material.CD_TE;
-                break;
-            case 5:
-                result = Material.CIGS;
-                break;
-        }
-
-        return result;
-    }
 
 }
 

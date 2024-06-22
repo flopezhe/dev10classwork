@@ -74,6 +74,7 @@ public class SolarPanelFileRepository implements SolarPanelRepository {
     }
 
 
+
     private List<SolarPanel> findAll() throws DataAccessException {
         ArrayList<SolarPanel> result = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {

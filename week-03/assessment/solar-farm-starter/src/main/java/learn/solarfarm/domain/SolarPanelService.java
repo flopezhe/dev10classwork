@@ -50,11 +50,6 @@ public class SolarPanelService {
             return result;
         }
 
-        if (solarPanel.getId()<=0){
-            result.addErrorMessage("Existing game must not have id set.");
-            return result;
-        }
-
         if(!repository.updateFile(solarPanel)){
             result.addErrorMessage("Solar panel %s not found.", solarPanel.getId());
         }
