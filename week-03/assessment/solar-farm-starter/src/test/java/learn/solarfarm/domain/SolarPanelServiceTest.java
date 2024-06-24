@@ -273,6 +273,7 @@ class SolarPanelServiceTest {
                 Material.POLY_SI, true);
         SolarPanelResult actual = service.update(panel);
         assertTrue(actual.isSuccess());
+        assertEquals(0, actual.getErrorMessages().size());
     }
 
     @Test
@@ -293,6 +294,7 @@ class SolarPanelServiceTest {
 
         SolarPanelResult actual = service.deleteById(1);
         assertTrue(actual.isSuccess());
+        assertEquals(0, actual.getErrorMessages().size());
 
     }
 }
