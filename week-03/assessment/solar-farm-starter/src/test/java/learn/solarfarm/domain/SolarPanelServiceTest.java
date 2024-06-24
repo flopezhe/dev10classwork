@@ -238,30 +238,63 @@ class SolarPanelServiceTest {
     @Test
     void shouldNotUpdateEmptySection() throws DataAccessException {
        // TODO: complete
+        SolarPanel solarPanel = new SolarPanel(1, "", 1, 1, 2020,
+                Material.POLY_SI, true);
+        SolarPanelResult actual = service.update(solarPanel);
+        assertFalse(actual.isSuccess());
+        assertEquals(1, actual.getErrorMessages().size());
     }
 
     @Test
     void shouldNotUpdateNonPositiveId() throws DataAccessException {
         // TODO: complete
+        SolarPanel panel = new SolarPanel(-1, "Section One", 1, 1, 2020,
+                Material.POLY_SI, true);
+        SolarPanelResult actual = service.update(panel);
+        assertFalse(actual.isSuccess());
+        assertEquals(1, actual.getErrorMessages().size());
     }
 
     @Test
     void shouldNotUpdateNonExistentSolarPanel() throws DataAccessException {
         // TODO: complete
+        SolarPanel panel = new SolarPanel(4, "Section one", 1, 1, 2020,
+                Material.POLY_SI, true);
+        SolarPanelResult actual = service.update(panel);
+        assertFalse(actual.isSuccess());
+        assertEquals(1, actual.getErrorMessages().size());
     }
+
 
     @Test
     void shouldUpdate() throws DataAccessException {
         // TODO: complete
+        SolarPanel panel = new SolarPanel(1, "Section one", 1, 1, 2020,
+                Material.POLY_SI, true);
+        SolarPanelResult actual = service.update(panel);
+        assertTrue(actual.isSuccess());
+        assertEquals(0, actual.getErrorMessages().size());
     }
 
     @Test
     void shouldNotDeleteNonExistentSolarPanel() throws DataAccessException {
         // TODO: complete
+        SolarPanel panel = new SolarPanel(4, "Section one", 1, 1, 2020,
+                Material.POLY_SI, true);
+        SolarPanelResult actual = service.deleteById(4);
+        assertFalse(actual.isSuccess());
+        assertEquals(1, actual.getErrorMessages().size());
     }
 
     @Test
     void shouldDelete() throws DataAccessException {
         // TODO: complete
+        SolarPanel panel = new SolarPanel(1, "Section one", 1, 1, 2020,
+                Material.POLY_SI, true);
+
+        SolarPanelResult actual = service.deleteById(1);
+        assertTrue(actual.isSuccess());
+        assertEquals(0, actual.getErrorMessages().size());
+
     }
 }

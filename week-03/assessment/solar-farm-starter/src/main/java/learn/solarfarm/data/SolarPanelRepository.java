@@ -2,6 +2,7 @@ package learn.solarfarm.data;
 
 import learn.solarfarm.models.SolarPanel;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
 public interface SolarPanelRepository {
@@ -12,6 +13,10 @@ public interface SolarPanelRepository {
     SolarPanel create(SolarPanel solarPanel) throws DataAccessException;
 
     // TODO: add an update method
+    boolean update(SolarPanel solarPanel) throws DataAccessException;
 
     // TODO: add a delete method
+    boolean deleteById(int solarPanelId) throws DataAccessException;
+
+
 }

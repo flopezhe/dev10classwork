@@ -43,7 +43,7 @@ public class Controller {
                     break;
                 case 4:
                     // TODO: complete delete
-                    System.out.println("NOT IMPLEMENTED");
+                    deletePanel();
                     break;
             }
         }
@@ -70,8 +70,38 @@ public class Controller {
         }
     }
 
+    private void deletePanel() throws DataAccessException {
+        String section = view.getSection();
+        int row = view.getRow();
+        int col = view.getColumn();
+        SolarPanel panel = service.findByKey(section, row, col);
+        boolean confirm = view.confirmDelete(panel);
+
+        if(confirm){
+            SolarPanelResult result = service.deleteById(panel.getId());
+            if(result.isSuccess()){
+                view.displayMessage(String.format("%s successfully deleted!", panel.getKey()));
+                view.displayMessage("");
+            } else {
+                view.displayErrors(result.getErrorMessages());
+            }
+        }
+
+    }
+
     private void updateSolarPanel() throws DataAccessException {
-        view.displayHeader("Update a Panel");
+        String section = view.getSection();
+        int row = view.getRow();
+        int col = view.getColumn();
+        SolarPanel panel = service.findByKey(section, row, col);
+        view.updatePanel(panel);
+        SolarPanelResult result = service.update(panel);
+        if(result.isSuccess()){
+            view.displayMessage(String.format("%s successfully updated!", panel.getKey()));
+        } else {
+            view.displayErrors(result.getErrorMessages());
+        }
+
         // TODO: grab the section, row, and column from the view.
         // TODO: use the service to fetch a solar panel by its key (section, row, column).
         // TODO: complete update

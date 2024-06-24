@@ -48,8 +48,32 @@ public class SolarPanelFileRepository implements SolarPanelRepository {
     }
 
     // TODO: add an update method (must match with interface)
+    public boolean update(SolarPanel solarPanel) throws DataAccessException{
+       List<SolarPanel> all = findAll();
+       for(int i = 0; i<all.size();i++){
+           if (all.get(i).getId()==solarPanel.getId()){
+               all.set(i, solarPanel);
+               writeToFile(all);
+               return true;
+           }
+       }
+       return false;
+    }
 
     // TODO: add a delete method (must match with interface)
+    public boolean deleteById(int solarPanelId) throws DataAccessException {
+        List<SolarPanel> all = findAll();
+        for(int index = 0; index < all.size(); index++){
+            if(all.get(index).getId()==solarPanelId){
+                all.remove(index);
+                writeToFile(all);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
     private List<SolarPanel> findAll() throws DataAccessException {
         ArrayList<SolarPanel> result = new ArrayList<>();

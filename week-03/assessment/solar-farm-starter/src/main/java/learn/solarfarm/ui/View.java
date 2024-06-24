@@ -5,9 +5,11 @@ import learn.solarfarm.models.Material;
 import learn.solarfarm.models.SolarPanel;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class View {
     private final TextIO io;
+    Scanner scanner = new Scanner(System.in);
 
     public View(TextIO io) {
         this.io = io;
@@ -81,7 +83,42 @@ public class View {
         result.setMaterial(io.readEnum("Material", Material.class));
         result.setYearInstalled(io.readInt("Installation Year", SolarPanelService.getMaxInstallationYear()));
         result.setTracking(io.readBoolean("Tracked [y/n]"));
-
         return result;
     }
+
+    public String readString(String prompt) {
+        displayMessage(prompt);
+        return scanner.nextLine();
+    }
+
+    public boolean confirmDelete(SolarPanel panel){
+        displayHeader(String.format(" Delete %s?", panel.getKey()));
+        return io.readBoolean("Really delete [ y or n] ");
+    }
+
+
+    public void updatePanel(SolarPanel solarPanel) {
+
+        solarPanel.setSection(io.readRequiredString(String.format("Section (%s) \nNew Section", solarPanel.getSection())));
+
+        solarPanel.setRow(io.readInt(String.format("Row (%s) \n New Row", solarPanel.getRow()), 1, 250));
+
+        solarPanel.setColumn(io.readInt(String.format("Column (%s) \n New Column", solarPanel.getColumn()), 1, 250));
+
+        solarPanel.setYearInstalled(io.readInt(String.format("Year Installed (%s) \nNew Year", solarPanel.getYearInstalled()), 0, 2024));
+
+        solarPanel.setMaterial(io.readEnum(String.format("Material (%s)", solarPanel.getMaterial()), Material.class));
+
+        solarPanel.setTracking(io.readBoolean(String.format("Tracking (%s) \nEnter (y or n) to update", solarPanel.isTracking())));
+
+
+    }
+
+
+
 }
+
+
+
+
+
