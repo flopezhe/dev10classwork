@@ -99,6 +99,12 @@ public class View {
 
     public void updatePanel(SolarPanel solarPanel) {
 
+        solarPanel.setSection(io.readRequiredString(String.format("Section (%s) \nNew Section", solarPanel.getSection())));
+
+        solarPanel.setRow(io.readInt(String.format("Row (%s) \n New Row", solarPanel.getRow()), 1, 250));
+
+        solarPanel.setColumn(io.readInt(String.format("Column (%s) \n New Column", solarPanel.getColumn()), 1, 250));
+
         solarPanel.setYearInstalled(io.readInt(String.format("Year Installed (%s) \nNew Year", solarPanel.getYearInstalled()), 0, 2024));
 
         solarPanel.setMaterial(io.readEnum(String.format("Material (%s)", solarPanel.getMaterial()), Material.class));

@@ -50,7 +50,7 @@ public class SolarPanelService {
             return result;
         }
 
-        if(!repository.updateFile(solarPanel)){
+        if(!repository.update(solarPanel)){
             result.addErrorMessage("Solar panel %s not found.", solarPanel.getId());
         }
 

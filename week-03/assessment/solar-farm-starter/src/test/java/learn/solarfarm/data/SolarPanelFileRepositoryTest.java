@@ -113,11 +113,11 @@ class SolarPanelFileRepositoryTest {
         // TODO: complete
         SolarPanel solarPanel = new SolarPanel(1,"1",1,1,2020,Material.POLY_SI, true);
         solarPanel.setYearInstalled(2021);
-        assertTrue(repository.updateFile(solarPanel));
+        assertTrue(repository.update(solarPanel));
         assertEquals(2021, solarPanel.getYearInstalled());
 
         solarPanel.setTracking(false);
-        assertTrue(repository.updateFile(solarPanel));
+        assertTrue(repository.update(solarPanel));
         assertFalse(solarPanel.isTracking());
 
 
