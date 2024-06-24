@@ -98,37 +98,13 @@ public class View {
 
 
     public void updatePanel(SolarPanel solarPanel) {
-//        String yrInstalled = "";
-//        int yearInstalled = 0;
-//        do {
-//            yrInstalled = (String.format("Year Installed (%s) \nNew Year", solarPanel.getYearInstalled()));
-//            if (!yrInstalled.isBlank()) {
-//                try {
-//                    yearInstalled = io.readInt(yrInstalled, 0, 2024);
-//                    solarPanel.setYearInstalled(yearInstalled);
-//                } catch (NumberFormatException ex) {
-//                    System.out.println("Year must be current or previous years");
-//                }
-//            }
-//        } while (!yrInstalled.isBlank() && yearInstalled == 0);
+
         solarPanel.setYearInstalled(io.readInt(String.format("Year Installed (%s) \nNew Year", solarPanel.getYearInstalled()), 0, 2024));
 
         solarPanel.setMaterial(io.readEnum(String.format("Material (%s)", solarPanel.getMaterial()), Material.class));
 
         solarPanel.setTracking(io.readBoolean(String.format("Tracking (%s) \nEnter (y or n) to update", solarPanel.isTracking())));
-//        String tracks = "";
-//        boolean isTracking = false;
-//        do {
-//            tracks = String.format("Current Tracking Status (%s) \nPress [Enter] to keep original value. \nIs it tracked? [ y or n] ", solarPanel.isTracking());
-//            if (!tracks.isBlank()) {
-//                try {
-//                    isTracking = io.readBoolean(tracks);
-//                    solarPanel.setTracking(isTracking);
-//                } catch (NumberFormatException ex) {
-//                    System.out.println("Must be y or n.");
-//                }
-//            }
-//        } while (tracks.isBlank() && isTracking==false);
+
 
     }
 
