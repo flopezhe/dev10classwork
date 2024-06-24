@@ -42,7 +42,7 @@ public class SolarPanelRepositoryDouble implements SolarPanelRepository {
     }
 
     @Override
-    public boolean updateFile(SolarPanel solarPanel) throws DataAccessException {
+    public boolean update(SolarPanel solarPanel) throws DataAccessException {
         if( solarPanel.getId() > 0 ){
             return true;
         } else {

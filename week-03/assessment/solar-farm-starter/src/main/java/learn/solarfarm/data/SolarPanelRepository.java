@@ -13,7 +13,7 @@ public interface SolarPanelRepository {
     SolarPanel create(SolarPanel solarPanel) throws DataAccessException;
 
     // TODO: add an update method
-    boolean updateFile(SolarPanel solarPanel) throws DataAccessException;
+    boolean update(SolarPanel solarPanel) throws DataAccessException;
 
     // TODO: add a delete method
     boolean deleteById(int solarPanelId) throws DataAccessException;
