@@ -11,11 +11,21 @@ select * from employee;
 
 -- Select the employee_id, first_name, and last_name from employee.
 -- Expected: 33 Rows, 3 columns
+select 
+employee_id,
+first_name,
+last_name
+from employee;
 
 -- Select the employee_id, first_name, and start_date from employee
 -- where the last_name equals 'Gravel'.
 -- Expected: 7 Rows, 3 columns
-
+select 
+employee_id,
+first_name,
+start_date
+from employee 
+where last_name = 'Gravel';
 -- Select first_name, last_name, and city from customer
 -- where the city equals 'Ajax'.
 -- Expected: 13 Rows, 3 columns
@@ -60,6 +70,9 @@ select * from employee;
 
 -- Which customers don't have a phone number?
 -- Expected: 68 Rows.
+select * from customer;
+select * from customer 
+where (phone is null or phone = '');
 
 -- Which employees don't have an end_date?
 -- In other words, end_date has the null value.
