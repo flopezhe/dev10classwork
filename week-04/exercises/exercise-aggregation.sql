@@ -7,37 +7,85 @@ use gravel_family;
 -- Example: 
 -- Count the number of customer in Toronto
 -- Expected: 14
-select count(*)
-from customer
-where city = 'Toronto';
+select 
+count(c.customer_id)
+from customer c
+where c.city = 'Toronto';
 
 -- How many employees have the last_name 'Soyle'?
 -- Expected: 12
+select
+count(e.last_name)
+from employee e
+where e.last_name = 'Soyle';
 
 -- How many projects are there in the database?
 -- Expected: 1121
+select
+count(p.project_id) project_count
+from project p;
 
 -- What's the earliest project start_date?
 -- Expected: 2017-09-23
+select 
+min(p.start_date)
+from project p;
 
 -- What's the latest employee start_date?
 -- Expected: 2020-08-25
+select
+max(e.start_date) latest_start_date
+from employee e;
 
 -- Count customers per city.
 -- Expected: 88 Rows
+select 
+c.city,
+count(*) 
+from customer c
+group by c.city;
+
 
 -- Count customers per postal_code.
 -- Expected: 84 Rows
+select
+c.postal_code,
+count(*) as customer_count
+from customer c
+group by c.postal_code;
 
 -- Count employees per last_name.
 -- Expected: 3 Rows
+select
+e.last_name,
+count(*)
+from employee e
+group by e.last_name;
 
 -- Count the number of projects per city.
 -- Expected: 88 Rows
+-- Error Code: 1055. Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gravel_family.p.project_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+
+select
+c.city,
+count(p.project_id)
+from customer c
+left outer join project p on c.customer_id=p.customer_id
+group by c.city;
 
 -- Count the number of projects per city.
 -- Sort by the count descending and select the top 10 rows.
 -- Expected: 10 Rows
+
+select 
+c.city,
+count(p.project_id) as project_amount
+from customer c
+left outer join project p on c.customer_id=p.customer_id
+group by c.city
+order by count(p.project_id) desc
+limit 10;
+
 
 -- Which postal_code has the most projects?
 -- Expected: M3H

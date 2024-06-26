@@ -19,15 +19,36 @@ inner join login l on c.customer_id = l.customer_id;
 -- user_name from login where rows from both tables are required.
 -- Sort by user_name descending.
 -- Expected: 659 Rows
+select
+c.first_name,
+c.last_name,
+l.user_name
+from customer c 
+inner join login l on c.customer_id = l.customer_id 
+order by l.user_name desc;
 
 -- Select first_name and last_name from customer,
 -- user_name from login where rows from both tables are required.
 -- Only customers whose last name starts with 'W'.
 -- Sort by user_name descending.
 -- Expected: 24 Rows
+select 
+	c.first_name,
+	c.last_name,
+	l.user_name
+from customer c
+inner join login l on c.customer_id = l.customer_id 
+where c.last_name like 'W%'
+order by l.user_name desc;
+
 
 -- Join item and category. Select the item name and category name.
 -- Expected: 19 Rows
+select 
+	i.name,
+	c.name
+from item i
+left outer join category c on i.name = c.name;
 
 -- Join item and category. Select the item name and category name.
 -- Create an alias for each column: item_name and category_name
@@ -64,6 +85,16 @@ inner join login l on c.customer_id = l.customer_id;
 -- where the employee last_name equals `Gravel`.
 -- Expected: 958 Rows
 
+select
+e.employee_id,
+e.first_name,
+e.last_name,
+p.project_id,
+p.description,
+p.start_date
+from employee e
+inner join project_employee pe on pe.employee_id = e.employee_id;
+
 -- Which employees worked on a project for the customer
 -- with last_name equal to 'Rao'?
 -- Expected: Itch Gravel, Alang Durt, Ynez Durt, Ddene Soyle,
@@ -90,6 +121,15 @@ inner join login l on c.customer_id = l.customer_id;
 -- optional to include categories without a parent.
 -- Expected: 8 Rows
 
+select 
+c.category_id child_id,
+c.name,
+p.category_id parent_id,
+p.name
+from category c
+left join category p on c.parent_category_id = p.category_id;
+
+
 -- Write an "everything" query:
 -- customer_id and names from customer
 -- description from project
@@ -106,3 +146,11 @@ inner join login l on c.customer_id = l.customer_id;
 -- regardless of if they have a project or Fleur worked on it.
 -- Though something should indicate if Fleur was on a M3H project.
 -- Expected: 48 Rows, 3 projects that Fleur worked on.
+
+select
+c.customer_id,
+concat(c.first_name, ' ' , c.last_name) as customer_name,
+p.project_id
+from customer c
+left outer join project p on p.customer_id = c.customer_id
+where c.postal_code= 'M3H';
