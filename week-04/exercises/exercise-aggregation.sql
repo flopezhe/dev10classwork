@@ -90,6 +90,15 @@ limit 10;
 -- Which postal_code has the most projects?
 -- Expected: M3H
 
+select
+c.postal_code,
+count(project_id) as project_amount
+from customer c
+left outer join project p on c.customer_id=p.customer_id
+group by c.postal_code
+order by count(p.project_id) desc
+limit 1;
+
 -- Count the number of projects per start_date year.
 -- Expected: 4 Rows
 

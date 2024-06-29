@@ -2,9 +2,9 @@ drop database if exists rcttc;
 create database rcttc;
 use rcttc;
 
-drop table if exists rcttc_data;
+drop table if exists rcttc_import;
 
-create table `rcttc_data` (
+create table `rcttc_import` (
   `customer_first` text,
   `customer_last` text,
   `customer_email` text,
@@ -20,7 +20,7 @@ create table `rcttc_data` (
   `theater_email` text
 );
 
-insert into rcttc_data	(customer_first, customer_last, customer_email, customer_phone, customer_address 
+insert into rcttc_import	(customer_first, customer_last, customer_email, customer_phone, customer_address 
 	, seat, `show`, ticket_price, `date`, theater, theater_address, theater_phone, theater_email)
 	values 
     ('Joice','Belford','jbelfordbw@oaic.gov.au','597-748-6096','','A5','Send in the Clowns',15,'2024-03-01','10 Pin','62341 Merchant Street, Eagan, MN 55555','(651) 555-5555','ten.pin@rcttc.com'),
