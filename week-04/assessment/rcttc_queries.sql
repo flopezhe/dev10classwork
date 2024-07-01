@@ -108,18 +108,20 @@ inner join tickets t on c.customer_id = t.customer_id
 group by customer_id;
 
 
+-- Error Code: 1054. Unknown column 'total_seats' in 'field list'
+
 -- count by show
 select
 s.show_id,
 s.show_name,
-sum(s.show_price) as total_revenue
+sum(s.show_price*t.ticket_id) as total_revenue
 from tickets t
 inner join `show` s on t.show_id = s.show_id
 group by s.show_id, s.show_name;
 -- by theater
 select
 th.theater_name,
-sum(s.show_price) as total_revenue
+sum(s.show_price*t.ticket_id) as total_revenue
 from tickets t
 inner join `show` s on t.show_id = s.show_id
 inner join theater th on s.theater_id = th.theater_id
