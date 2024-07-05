@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import java.util.HashMap;
 import java.util.List;
 
-public class BackerJdbcTemplateRepository implements BackerRepository {
+public class  BackerJdbcTemplateRepository implements BackerRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public BackerJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {

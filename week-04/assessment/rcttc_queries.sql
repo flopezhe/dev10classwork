@@ -57,7 +57,7 @@ from customer;
 select
 *
 from customer
-where email_address like '%.com';
+where email_address not like '%.com';
 
 
 
@@ -109,13 +109,12 @@ group by customer_id;
 
 
 -- count by show
-select
-s.show_id,
+select 
 s.show_name,
 sum(s.show_price) as total_revenue
 from tickets t
 inner join `show` s on t.show_id = s.show_id
-group by s.show_id, s.show_name;
+group by s.show_name;
 -- by theater
 select
 th.theater_name,

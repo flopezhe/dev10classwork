@@ -1,5 +1,4 @@
 -- DDL
--- use rcttc;
 drop database if exists tiny_theaters;
 create database tiny_theaters;
 

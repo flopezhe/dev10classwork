@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Exercise04 {
 
@@ -25,7 +26,12 @@ public class Exercise04 {
 
     // 4. calculate the average of elements in values
     BigDecimal average(BigDecimal[] values) {
-        return null;
+        BigDecimal total = BigDecimal.ZERO;
+        for(BigDecimal value : values){
+            total = total.add(value);
+        }
+
+        return total.divide(new BigDecimal(values.length), 4 , RoundingMode.HALF_UP);
     }
 
     /**

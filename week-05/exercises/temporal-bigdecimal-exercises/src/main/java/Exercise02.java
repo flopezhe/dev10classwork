@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Exercise02 {
@@ -38,6 +39,20 @@ public class Exercise02 {
     // time == 04:30:00
     // appointments == 04:30, 04:45, 05:00, 05:15
     List<LocalDateTime> getQuarterHourAppointments(LocalDateTime dateTime) {
-        return null;
+
+        ArrayList<LocalDateTime> quarterHourAppointments = new ArrayList<>();
+
+        dateTime = dateTime.withSecond(0).withNano(0);
+
+        int currentMins = dateTime.getMinute();
+        int minsToAdd = (15 - currentMins % 15 )% 15 ;
+        dateTime = dateTime.plusMinutes(minsToAdd);
+
+        for(int i = 0; i < 4 ; i++){
+            quarterHourAppointments.add(dateTime);
+            dateTime = dateTime.plusMinutes(15);
+        }
+
+        return quarterHourAppointments;
     }
 }

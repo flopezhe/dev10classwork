@@ -32,7 +32,16 @@ public class Main {
         // 5. Print the 4th - 6th ranked students by GPA from Argentina
 
         // 6. Is anyone from Maldives?
+        String answer = null;
+        boolean anyFromMaldives = students.stream()
+                .anyMatch(s -> s.getCountry().equalsIgnoreCase("Maldives"));
+        if(anyFromMaldives){
+            answer = "Yes";
+        } else {
+            answer = "No";
+        }
 
+        System.out.printf("Any from Maldives? %s", answer);
         // 7. Does everyone have a non-null, non-empty email address?
 
         // 8. Print students who are currently registered for 5 courses.
