@@ -1,0 +1,44 @@
+GET http://localhost:8080/sighting HTTP/1.1
+Accept: application/json
+
+###
+
+GET /sighting/2 HTTP/1.1
+Host: localhost:8080
+Accept: application/json
+
+###
+
+POST http://localhost:8080/sighting HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "sightingId": 4,
+    "bugType": "Roach",
+    "description": "the roaches are roaching away",
+    "date": "2024-07-15",
+    "interest": 0
+}
+
+###
+
+GET http://localhost:8080/sighting HTTP/1.1
+Accept: application/json
+
+###
+
+PUT http://localhost:8080/sighting/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "sightingId": 4,
+    "bugType": "Roach",
+    "description": "the roaches are roaching away",
+    "date": "2024-07-15",
+    "interest": 2
+}
+
+### 
+
+DELETE http://localhost:8080/sighting/2 HTTP/1.1

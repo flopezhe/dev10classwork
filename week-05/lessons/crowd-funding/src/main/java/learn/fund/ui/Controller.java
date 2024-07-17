@@ -30,7 +30,13 @@ public class Controller {
         } catch (Exception ex) {
             view.displayException(ex);
         }
-        view.displayMessage("Good bye.");
+        view.displayMessage("Goodbye.");
+    }
+
+    private void randomMethod(){
+        Backer backer = new Backer();
+        Pledge pledge = new Pledge();
+        pledge.getBacker().g
     }
 
     private void runApp() {
