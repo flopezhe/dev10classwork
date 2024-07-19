@@ -16,12 +16,12 @@ public class SolarPanelRepositoryDouble implements SolarPanelRepository {
     }
 
     @Override
-    public List<SolarPanel> findAll() throws DataAccessException {
+    public List<SolarPanel> findAll()  {
         return solarPanels;
     }
 
     @Override
-    public List<SolarPanel> findBySection(String section) throws DataAccessException {
+    public List<SolarPanel> findBySection(String section)  {
         ArrayList<SolarPanel> result = new ArrayList<>();
         for (SolarPanel sp : solarPanels) {
             if (sp.getSection().equalsIgnoreCase(section)) {
@@ -32,7 +32,7 @@ public class SolarPanelRepositoryDouble implements SolarPanelRepository {
     }
 
     @Override
-    public SolarPanel findByKey(String section, int row, int column) throws DataAccessException {
+    public SolarPanel findByKey(String section, int row, int column)  {
         for (SolarPanel sp : solarPanels) {
             if (sp.isMatch(section, row, column)) {
                 return sp;
@@ -50,17 +50,17 @@ public class SolarPanelRepositoryDouble implements SolarPanelRepository {
     }
 
     @Override
-    public SolarPanel create(SolarPanel solarPanel) throws DataAccessException {
+    public SolarPanel create(SolarPanel solarPanel)  {
         return solarPanel;
     }
 
     @Override
-    public boolean update(SolarPanel solarPanel) throws DataAccessException {
+    public boolean update(SolarPanel solarPanel)  {
         return true;
     }
 
     @Override
-    public boolean deleteById(int solarPanelId) throws DataAccessException {
+    public boolean deleteById(int solarPanelId)  {
         return findById(solarPanelId) != null;
     }
 

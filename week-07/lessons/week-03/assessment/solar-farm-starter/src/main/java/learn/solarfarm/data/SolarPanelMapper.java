@@ -3,9 +3,11 @@ package learn.solarfarm.data;
 import learn.solarfarm.models.Material;
 import learn.solarfarm.models.SolarPanel;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 public class SolarPanelMapper implements RowMapper<SolarPanel> {
     @Override
