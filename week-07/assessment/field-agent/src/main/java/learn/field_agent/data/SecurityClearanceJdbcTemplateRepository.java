@@ -40,7 +40,7 @@ public class SecurityClearanceJdbcTemplateRepository implements SecurityClearanc
         final String sql = """
                 select
                 security_clearance_id,
-                `name`
+                `name` as security_clearance_name
                 from security_clearance
                 limit 1000;
                 """;
