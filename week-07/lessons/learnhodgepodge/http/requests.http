@@ -1,0 +1,25 @@
+@url = http://localhost:8080
+
+GET {{url}}/name HTTP/1.1
+Accept: application/json
+
+
+###
+
+GET {{url}}/current/time HTTP/1.1
+Accept: application/json
+
+###
+GET {{url}}/greet/Farid HTTP/1.1
+Accept: application/json
+
+###
+
+PUT {{url}}/sheep HTTP/1.1
+Accept: application/json
+
+
+###
+
+GET {{url}}/sheep HTTP/1.1
+
