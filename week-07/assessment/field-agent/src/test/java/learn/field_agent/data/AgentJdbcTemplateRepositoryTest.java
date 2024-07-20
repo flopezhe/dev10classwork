@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,11 +21,11 @@ class AgentJdbcTemplateRepositoryTest {
     AgentJdbcTemplateRepository repository;
 
     @Autowired
-    KnownGoodState knownGoodState;
+    JdbcTemplate jdbcTemplate;
 
     @BeforeEach
     void setup() {
-        knownGoodState.set();
+        jdbcTemplate.execute("call set_known_good_state();");
     }
 
     @Test

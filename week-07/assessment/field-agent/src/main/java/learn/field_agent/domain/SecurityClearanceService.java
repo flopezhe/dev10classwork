@@ -1,6 +1,10 @@
 package learn.field_agent.domain;
 
+import learn.field_agent.data.AgencyAgentRepository;
+import learn.field_agent.data.AgencyRepository;
+import learn.field_agent.data.AgentRepository;
 import learn.field_agent.data.SecurityClearanceRepository;
+import learn.field_agent.models.AgencyAgent;
 import learn.field_agent.models.SecurityClearance;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +15,10 @@ public class SecurityClearanceService {
 
     private final SecurityClearanceRepository repository;
 
-    public SecurityClearanceService(SecurityClearanceRepository repository) {
+
+    public SecurityClearanceService(SecurityClearanceRepository repository, AgencyAgentRepository agencyAgentRepository, AgencyRepository agencyRepository, AgentRepository agentRepository) {
         this.repository = repository;
+
     }
 
     public SecurityClearance findById(int scId){
@@ -21,6 +27,10 @@ public class SecurityClearanceService {
 
     public List<SecurityClearance> findAll(){
         return repository.findAll();
+    }
+
+    public int countSc(int scId){
+        return repository.CountSc(scId);
     }
 
     public Result<SecurityClearance> add(SecurityClearance securityClearance){
@@ -60,8 +70,21 @@ public class SecurityClearanceService {
 
         return result;
     }
-    public boolean delete(int scId){
-        return repository.delete(scId);
+    public Result<?> delete(int scId){
+        Result<?> result = new Result<>();
+        int count = repository.CountSc(scId);
+        if (count > 0) {
+            result.addMessage("Can't delete a Security Clearance that is currently in use", ResultType.INVALID);
+            return result;
+        } else {
+            boolean success = repository.delete(scId);
+            if (!success) {
+                result.addMessage("Error", ResultType.NOT_FOUND);
+                return result;
+            }
+        }
+
+        return result;
     }
 
     private Result<SecurityClearance> validate(SecurityClearance securityClearance){
@@ -75,9 +98,10 @@ public class SecurityClearanceService {
         List<SecurityClearance> clearances = repository.findAll();
         for(SecurityClearance s : clearances){
             String names = s.getName();
-            if(names.equals(securityClearance.getName())){
+            if(names.equalsIgnoreCase(securityClearance.getName())){
                 result.addMessage("Can't have duplicate names.", ResultType.INVALID);
             }
+
         }
         if (Validations.isNullOrBlank(securityClearance.getName())){
             result.addMessage("Name is required", ResultType.INVALID);

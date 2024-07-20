@@ -13,5 +13,7 @@ public interface SecurityClearanceRepository {
 
     boolean delete(int scId);
 
-    public SecurityClearance add(SecurityClearance securityClearance);
+     SecurityClearance add(SecurityClearance securityClearance);
+
+    int CountSc(int scId);
 }

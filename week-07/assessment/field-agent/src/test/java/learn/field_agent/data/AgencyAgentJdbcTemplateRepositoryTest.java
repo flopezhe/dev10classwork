@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.time.LocalDate;
 
@@ -17,14 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class AgencyAgentJdbcTemplateRepositoryTest {
 
     @Autowired
-    AgencyAgentJdbcTemplateRepository repository;
-
+    JdbcTemplate jdbcTemplate;
     @Autowired
-    KnownGoodState knownGoodState;
+    AgencyAgentJdbcTemplateRepository repository;
 
     @BeforeEach
     void setup() {
-        knownGoodState.set();
+        jdbcTemplate.execute("call set_known_good_state();");
     }
 
     @Test

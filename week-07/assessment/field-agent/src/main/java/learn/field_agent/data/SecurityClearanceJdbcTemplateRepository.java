@@ -63,6 +63,18 @@ public class SecurityClearanceJdbcTemplateRepository implements SecurityClearanc
     }
 
     @Override
+    public int CountSc(int scId){
+        final String sql =
+                """
+                select
+                count(security_clearance_id)
+                from agency_agent
+                where security_clearance_id = ?;
+                """;
+        return jdbcTemplate.queryForObject(sql, Integer.class,scId);
+    }
+
+    @Override
     public boolean update(SecurityClearance securityClearance){
         final String sql =
                 """
@@ -71,12 +83,12 @@ public class SecurityClearanceJdbcTemplateRepository implements SecurityClearanc
                 where security_clearance_id = ?;
                 """;
 
-        return jdbcTemplate.update(sql,securityClearance.getName(), securityClearance.getSecurityClearanceId()) > 0;
+        return jdbcTemplate.update(sql,securityClearance.getName(),
+                securityClearance.getSecurityClearanceId()) > 0;
     }
 
     @Override
     public boolean delete(int scId){
-        jdbcTemplate.update("delete from security_clearance where security_clearance_id = ?;", scId);
         return jdbcTemplate.update("delete from security_clearance where security_clearance_id = ?;", scId) > 0;
     }
 

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static learn.field_agent.controllers.ErrorResponse.build;
+
 @RestController
 public class SecurityClearanceController {
 
@@ -37,7 +39,7 @@ public class SecurityClearanceController {
         if (result.isSuccess()) {
             return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
         }
-        return ErrorResponse.build(result);
+        return build(result);
     }
 
     @PutMapping("/{securityId}")
@@ -51,14 +53,15 @@ public class SecurityClearanceController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 
-        return ErrorResponse.build(result);
+        return build(result);
     }
 
     @DeleteMapping("/{securityId}")
-    public ResponseEntity<Object> delete(@PathVariable int securityId){
-        if (service.delete(securityId)) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public ResponseEntity<?> delete(@PathVariable int securityId){
+        Result<?> result = service.delete(securityId);
+        if(result.isSuccess()){
+            return new ResponseEntity<>(result.getPayload(),HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return build(result);
     }
 }
