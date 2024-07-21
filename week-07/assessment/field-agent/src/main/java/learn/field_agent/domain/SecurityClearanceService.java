@@ -16,7 +16,7 @@ public class SecurityClearanceService {
     private final SecurityClearanceRepository repository;
 
 
-    public SecurityClearanceService(SecurityClearanceRepository repository, AgencyAgentRepository agencyAgentRepository, AgencyRepository agencyRepository, AgentRepository agentRepository) {
+    public SecurityClearanceService(SecurityClearanceRepository repository) {
         this.repository = repository;
 
     }
