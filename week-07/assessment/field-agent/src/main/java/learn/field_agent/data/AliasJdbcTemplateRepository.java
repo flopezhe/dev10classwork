@@ -1,7 +1,6 @@
 package learn.field_agent.data;
 
 import learn.field_agent.data.mappers.AliasMapper;
-import learn.field_agent.data.mappers.SecurityClearanceMapper;
 import learn.field_agent.models.Alias;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;

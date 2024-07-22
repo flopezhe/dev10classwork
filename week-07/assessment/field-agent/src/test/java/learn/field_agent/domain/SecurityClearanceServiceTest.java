@@ -54,12 +54,12 @@ class SecurityClearanceServiceTest {
 
     }
 
-    @Test
-    void countSc() {
-
-
-
-    }
+//    @Test
+//    void countSc() {
+//
+//
+//
+//    }
 
     @Test
     void add() {
