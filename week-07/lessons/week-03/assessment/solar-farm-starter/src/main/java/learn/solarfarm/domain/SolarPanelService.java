@@ -1,13 +1,14 @@
 package learn.solarfarm.domain;
 
-import learn.solarfarm.data.DataAccessException;
 import learn.solarfarm.data.SolarPanelRepository;
 import learn.solarfarm.models.SolarPanel;
+import org.springframework.stereotype.Service;
 
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class SolarPanelService {
     public final static int MAX_ROW_COLUMN = 250;
 
@@ -21,19 +22,19 @@ public class SolarPanelService {
         return Year.now().getValue();
     }
 
-    public List<SolarPanel> findBySection(String section) throws DataAccessException {
+    public List<SolarPanel> findBySection(String section) {
         return repository.findBySection(section);
     }
 
-    public SolarPanel findByKey(String section, int row, int column) throws DataAccessException {
+    public SolarPanel findByKey(String section, int row, int column)  {
         return repository.findByKey(section, row, column);
     }
 
-    public SolarPanel findById(int solarPanelId) throws DataAccessException {
+    public SolarPanel findById(int solarPanelId)  {
         return repository.findById(solarPanelId);
     }
 
-    public List<String> findAllSections() throws DataAccessException {
+    public List<String> findAllSections() {
         ArrayList<String> result = new ArrayList<>();
         for (SolarPanel solarPanel : repository.findAll())
             if (!result.contains(solarPanel.getSection()))
@@ -41,7 +42,7 @@ public class SolarPanelService {
         return result;
     }
 
-    public SolarPanelResult create(SolarPanel solarPanel) throws DataAccessException {
+    public SolarPanelResult create(SolarPanel solarPanel) {
         SolarPanelResult result = validate(solarPanel);
 
         if (solarPanel != null && solarPanel.getId() > 0) {
@@ -56,7 +57,7 @@ public class SolarPanelService {
         return result;
     }
 
-    public SolarPanelResult update(SolarPanel solarPanel) throws DataAccessException {
+    public SolarPanelResult update(SolarPanel solarPanel)  {
         SolarPanelResult result = validateInputs(solarPanel);
         if (solarPanel == null) return result;
 
@@ -83,14 +84,14 @@ public class SolarPanelService {
         return result;
     }
 
-    public SolarPanelResult deleteById(int solarPanelId) throws DataAccessException {
+    public SolarPanelResult deleteById(int solarPanelId) {
         SolarPanelResult result = new SolarPanelResult();
         if (!repository.deleteById(solarPanelId))
             result.addErrorMessage("SolarPanel " + solarPanelId + " not found.");
         return result;
     }
 
-    private boolean hasDuplicateKey(SolarPanel solarPanel) throws DataAccessException {
+    private boolean hasDuplicateKey(SolarPanel solarPanel)  {
         SolarPanel withMatchingKey = repository.findByKey(
                 solarPanel.getSection(),
                 solarPanel.getRow(),
@@ -129,7 +130,7 @@ public class SolarPanelService {
         return result;
     }
 
-    private SolarPanelResult validate(SolarPanel solarPanel) throws DataAccessException {
+    private SolarPanelResult validate(SolarPanel solarPanel) {
         SolarPanelResult result = validateInputs(solarPanel);
 
         // If everything is successful so far, then check if the combined values

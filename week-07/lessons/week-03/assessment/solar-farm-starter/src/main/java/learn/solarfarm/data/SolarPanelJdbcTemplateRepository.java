@@ -3,17 +3,19 @@ package learn.solarfarm.data;
 import learn.solarfarm.models.SolarPanel;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 
+@Repository
 public class SolarPanelJdbcTemplateRepository implements SolarPanelRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public SolarPanelJdbcTemplateRepository(JdbcTemplate jdbcTemplate) { this.jdbcTemplate = jdbcTemplate; }
 
     @Override
-    public List<SolarPanel> findAll() throws DataAccessException {
+    public List<SolarPanel> findAll() {
         final String sql = """
                 select
                     solar_panel_id,
@@ -29,7 +31,7 @@ public class SolarPanelJdbcTemplateRepository implements SolarPanelRepository {
     }
 
     @Override
-    public List<SolarPanel> findBySection(String section) throws DataAccessException {
+    public List<SolarPanel> findBySection(String section)  {
         final String sql = """
                 select
                     solar_panel_id,
@@ -46,7 +48,7 @@ public class SolarPanelJdbcTemplateRepository implements SolarPanelRepository {
     }
 
     @Override
-    public SolarPanel findByKey(String section, int row, int column) throws DataAccessException {
+    public SolarPanel findByKey(String section, int row, int column) {
         final String sql = """
                 select
                     solar_panel_id,
@@ -64,7 +66,7 @@ public class SolarPanelJdbcTemplateRepository implements SolarPanelRepository {
     }
 
     @Override
-    public SolarPanel findById(int solarPanelId) throws DataAccessException {
+    public SolarPanel findById(int solarPanelId)  {
         final String sql = """
                 select
                     solar_panel_id,
@@ -82,7 +84,7 @@ public class SolarPanelJdbcTemplateRepository implements SolarPanelRepository {
     }
 
     @Override
-    public SolarPanel create(SolarPanel solarPanel) throws DataAccessException {
+    public SolarPanel create(SolarPanel solarPanel)  {
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
                 .withTableName("solar_panel")
                 .usingGeneratedKeyColumns("solar_panel_id")
@@ -107,7 +109,7 @@ public class SolarPanelJdbcTemplateRepository implements SolarPanelRepository {
     }
 
     @Override
-    public boolean update(SolarPanel solarPanel) throws DataAccessException {
+    public boolean update(SolarPanel solarPanel) {
         final String sql = """
                 update solar_panel set
                     solar_panel_section = ?,
@@ -130,7 +132,7 @@ public class SolarPanelJdbcTemplateRepository implements SolarPanelRepository {
     }
 
     @Override
-    public boolean deleteById(int solarPanelId) throws DataAccessException {
+    public boolean deleteById(int solarPanelId)  {
         return jdbcTemplate.update("delete from solar_panel where solar_panel_id = ?;", solarPanelId) > 0;
     }
 }

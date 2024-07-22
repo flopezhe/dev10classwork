@@ -1,9 +1,11 @@
 package learn.solarfarm.domain;
 
 import learn.solarfarm.models.SolarPanel;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class SolarPanelResult {
     private final ArrayList<String> messages = new ArrayList<>();
