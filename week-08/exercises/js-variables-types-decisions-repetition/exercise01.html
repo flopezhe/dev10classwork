@@ -26,9 +26,22 @@
      * - If none of the managers ask, print "Nothing to do..."
      */
 
-    const managerAAsked = true;
-    const managerBAsked = true;
-    const managerCAsked = true;
+     let manA = false;
+    let manB = false;
+    let manC = false;
+
+    let numOfMans = 0;
+    if(manA){
+      numOfMans ++ ;
+    } else if ( manB){
+      numOfMans++ ; 
+    } else if(manC){
+      numOfMans++ ;
+    }
+
+    if(numOfMans == 3){
+
+    }
 
     // 1. Add decisions statements to cover all scenarios.
     // 2. Change manager variables to test all scenarios.

@@ -33,6 +33,10 @@
 
     // Your code here...
 
+    function runFunction(func){
+      return func();
+    }
+
     function f1() {
         console.log("one");
     }
@@ -41,6 +45,7 @@
         ["snow", "sun", "ice fishing"].forEach(console.log);
     };
 
+  
     runFunction(f1);
     runFunction(f2);
     runFunction(() => console.log("firecracker"));

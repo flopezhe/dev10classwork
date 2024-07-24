@@ -28,7 +28,23 @@
 
     function getFirstVowel(value) {
       // Your code here...
+      
+      if (value == null || value == undefined){
+          return "";
+        }
+        
+        let vowels = `aeiouAEIOU`
+      
+        for(let i = 0; i < value.length ; i++){
+         if (vowels.includes(value[i])){
+          return value[i];
+        }
+      }
+
+      return '';
     }
+
+    console.log(getFirstVowel("first"))
 
   </script>
 

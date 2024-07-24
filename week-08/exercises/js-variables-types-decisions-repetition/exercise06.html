@@ -32,10 +32,18 @@
      * "wha?", "" -> "wha?"
      */
 
-    // Change these values to test.
     const first = "abc";
     const second = "123";
+    let newphrase = "";
 
+    for(let i = 0; i <= first.length ; i++){
+      for(let j = 0; j <= second.length ; j++){
+        newphrase = newphrase + first.charAt(i) + second.charAt(j);
+      }
+    
+    }
+
+    console.log(newphrase);
     // Your code here...
 
   </script>
