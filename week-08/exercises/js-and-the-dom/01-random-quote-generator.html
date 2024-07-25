@@ -9,7 +9,7 @@
 
   <h1>Random Quote Generator</h1>
 
-  <button>Generate Quote</button>
+  <button id="generateQuote">Generate Quote</button>
 
   <p id="quote"></p>
 
@@ -36,6 +36,18 @@
       'Many of life\'s failures are people who did not realize how close they were to success when they gave up. -Thomas A. Edison',
     ];
 
+    const quote = document.getElementById("quote");
+
+    const generateQuote = document.getElementById("generateQuote");
+
+    
+
+    function genQuote(){
+      let randQuote = quotes[Math.floor(Math.random()*quotes.length)];
+      quote.innerText = randQuote;
+    }
+    generateQuote.addEventListener(`click`, genQuote)
+    
     // TODO Write your code here.
 
   </script>

@@ -75,6 +75,26 @@
      */
 
     // Your code here...
+  
+
+    function padLeftStringArray(arr){
+      // let newArr = [];
+      // // newArr.forEach("   ");
+      // // let lastArr = [];
+      // newArr =arr;
+      
+      for(const i of arr){
+        return arr.map(i => i.padStart(i))
+      }
+    }
+
+ 
+
+    let cars = [];
+
+    cars.make = "Toyota";
+
+    padLeftStringArray(cars);
 
   </script>
 
