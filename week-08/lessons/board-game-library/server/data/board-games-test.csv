@@ -1,0 +1,4 @@
+boardGameId,title,rating,minimumPlayers,maximumPlayers,checkedOut,weight
+1,Test Title1,9,1,4,false,MEDIUM
+2,Test Title2,8,2,5,true,LIGHT
+3,Test Title3,7,3,6,false,MEDIUM

@@ -1,14 +1,30 @@
+const url = "http://localhost:8080/api/capsule";
 const capsuleContainer = document.getElementById('capsules');
 const messages = document.getElementById('messages');
 
 /**
  * Displays the capsules in the capsule container.
  */
-function displayCapsules() {
+async function displayCapsules() {
   // TODO Use the Fetch API to get the capsules from the API.
-  const capsules = [];
+  const init = {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+  };
 
-  const capsulesHtml = capsules.map((capsule) => `
+  const capsules = await fetch(url, init);
+
+  if (capsules.status !== 200) {
+    console.log(`Bad status: ${capsules.status}`);
+    return Promise.reject("response is not 200 OK");
+  }
+
+  const json = await capsules.json();
+
+
+  const capsulesHtml = json.map((capsule) => `
     <div>
       <span class="badge badge-pill ${capsule.guestName ? 'badge-warning' : 'badge-success'}">Capsule #${capsule.capsuleNumber}</span>
       &nbsp;
