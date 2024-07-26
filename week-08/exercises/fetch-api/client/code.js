@@ -7,14 +7,15 @@ const messages = document.getElementById('messages');
  */
 async function displayCapsules() {
   // TODO Use the Fetch API to get the capsules from the API.
-  const init = {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-    },
-  };
+  // const init = {
+  //   method: "GET",
+  //   headers: {
+  //     Accept: "application/json",
+  //   },
+  // };
+  // DONT NEED INIT (AWAIT FETCH(URL,INIT IN SIMPLE GETS))
 
-  const capsules = await fetch(url, init);
+  const capsules = await fetch(url);
 
   if (capsules.status !== 200) {
     console.log(`Bad status: ${capsules.status}`);
@@ -76,14 +77,30 @@ function displaySuccessMessage(message) {
  * Handles the check-in form submission.
  * @param {Event} evt - The event object.
  */
-function checkIn(evt) {
+async function checkIn(evt) {
   evt.preventDefault();
+  
 
   const guestName = document.getElementById('guestName').value.trim();
   const capsuleNumber = parseInt(
     document.getElementById('checkInCapsuleNumber').value,
     10
   );
+
+  const capsule = {guestName, capsuleNumber};
+
+  const init = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(capsule), 
+  };
+
+ await fetch(url, init);
+
+  // const json = await capsules.json();
 
   // TODO Use the Fetch API to check in the guest using the API.
   // TODO If the response status is 400, display the error messages using the `displayErrorMessages()` function.
