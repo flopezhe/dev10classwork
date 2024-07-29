@@ -1,0 +1,36 @@
+*, .navbar{
+    background-color: bisque;
+    font-family: monospace;
+}
+.btn-success, .btn-danger, .btn-warning{
+    padding: 10px;
+    margin: 10px;
+}
+
+.form-control-sm{
+    margin: 10px;
+}
+
+h1{
+    text-align: center;
+}
+
+
+.rotate {
+    animation: rotation 8s infinite linear;
+    padding: 50px;
+    width: 300px;
+    display: block;
+    position: absolute; 
+    left: 40%;
+    top: 40%;
+  }
+  
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }

@@ -87,8 +87,11 @@ async function checkIn(evt) {
     10
   );
 
-  const capsule = {guestName, capsuleNumber};
+  
 
+  const capsule = {capsuleNumber, guestName};
+
+  
   const init = {
     method: "POST",
     headers: {
@@ -98,7 +101,7 @@ async function checkIn(evt) {
     body: JSON.stringify(capsule), 
   };
 
- await fetch(url, init);
+ const response = await fetch(url, init);
 
   // const json = await capsules.json();
 

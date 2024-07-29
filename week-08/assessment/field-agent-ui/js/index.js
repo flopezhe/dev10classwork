@@ -76,8 +76,8 @@ function populateAgents(agents) {
             <td>${agent.dob ?? "N/A"}</td>
             <td>${agent.heightInInches}</td>
             <td>
-                <button type="button" onClick="confirmDelete(${agent.agentId})">Delete</button>
-                <button type="button" onClick="showUpdate(${agent.agentId})">Edit</button>
+                <button type="button" class="btn btn-danger" onClick="confirmDelete(${agent.agentId})">Delete</button>
+                <button type="button" class="btn btn-warning" onClick="showUpdate(${agent.agentId})">Edit</button>
             </td>
         </tr>`;
     }
