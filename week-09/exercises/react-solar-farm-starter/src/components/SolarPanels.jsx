@@ -1,5 +1,6 @@
 import React from "react";
 import SolarPanel from "./SolarPanel";
+import Buttons from "./Buttons";
 
 const solarPanels = [
 	{
@@ -31,15 +32,15 @@ const solarPanels = [
 	},
 ];
 
-export default function SolarPanels(){
-    return (<main>
+export default function SolarPanels(setShowForm){
+    return (<>
         <h1 className='mb-3'>Solar Panels</h1>
-        <button className='mb-3 btn btn-primary'>
-            Add Solar Panel
-        </button>
+        <Buttons />
+        <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4'>
         {solarPanels.map(solarPanel => (
-            <SolarPanel solarPanel={solarPanel} key ={solarPanel.solarPanelId}/>
+            <SolarPanel solarPanel={solarPanel} key ={solarPanel.id}/>
         ))}
-        
-    </main>);
+        </div>
+        </>
+        );
 }

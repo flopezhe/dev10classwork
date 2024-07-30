@@ -14,7 +14,7 @@ export default function SolarPanel({ solarPanel }){
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr key={solarPanel.id}>
             <td>{solarPanel.section}</td>
             <td>{solarPanel.row}</td>
             <td>{solarPanel.column}</td>
