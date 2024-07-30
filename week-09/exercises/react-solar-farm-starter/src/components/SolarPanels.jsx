@@ -32,7 +32,7 @@ const solarPanels = [
 	},
 ];
 
-export default function SolarPanels(setShowForm){
+export default function SolarPanels(){
     return (<>
         <h1 className='mb-3'>Solar Panels</h1>
         <Buttons />
