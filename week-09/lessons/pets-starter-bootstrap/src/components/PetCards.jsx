@@ -1,4 +1,5 @@
 import PetCard from './PetCard';
+import { Link } from 'react-router-dom';
 
 const pets = [
 	{
@@ -33,13 +34,18 @@ const pets = [
 	},
 ];
 
-export default function PetCards() {
+export default function PetCards({ setShowForm }) {
 	return (
-		<div>
-			<button>Add a Pet</button>
-			{pets.map(pet => (
-				<PetCard pet={pet} key={pet.petId} />
-			))}
+	  <>
+		<h1>Pets</h1>
+		<Link className='btn btn-primary mb-3' to='/pets/add'>
+		Add a Pet
+		</Link>
+		<div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4'>
+		  {pets.map(pet => (
+			<PetCard pet={pet} key={pet.id} />
+		  ))}
 		</div>
+	  </>
 	);
-}
+  }
