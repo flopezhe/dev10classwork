@@ -1,0 +1,80 @@
+@url = http://localhost:8080/api/board-game
+
+GET {{url}} HTTP/1.1
+
+### Get board game by id
+
+GET {{url}}/1 HTTP/1.1
+
+### Get missing board game, expect 404
+
+GET {{url}}/999 HTTP/1.1
+
+### Find by title
+
+GET {{url}}/title?title=Lunar Rush HTTP/1.1
+
+### Find by missing title
+
+GET {{url}}/title/?title=Monopoly HTTP/1.1
+
+### Create board game
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Catan",
+  "rating": 6,
+  "minimumPlayers": 2,
+  "maximumPlayers": 4,
+  "checkedOut": false,
+  "weight": "LIGHT"
+}
+
+### Create bad board game
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "",
+  "rating": 12,
+  "minimumPlayers": -1,
+  "maximumPlayers": -3,
+  "checkedOut": false
+}
+
+### Create unreadable board game
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "",
+  "rating": 12,
+  "minimumPlayers": -1,
+  "maximumPlayers": -3,
+  "checkedOut": false,
+  "weight": "CATS"
+}
+
+### Update
+
+PUT {{url}}/1 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "boardGameId": 1,
+  "title": "Lunar Rush",
+  "rating": 7.9,
+  "minimumPlayers": 1,
+  "maximumPlayers": 4,
+  "checkedOut": false,
+  "weight": "MEDIUM"
+}
+
+### Delete
+
+DELETE {{url}}/2 HTTP/1.1
