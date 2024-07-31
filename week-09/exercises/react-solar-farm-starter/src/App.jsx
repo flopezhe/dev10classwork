@@ -12,7 +12,7 @@ function App() {
 	return (
 		<div className='container'>
 			<Header />
-			{showForm === true ? (<AddForm />
+			{showForm === true ? (<AddForm setShowForm={setShowForm}/>
 		) : (<SolarPanels setShowForm={setShowForm}/>)}
 			
 		</div>

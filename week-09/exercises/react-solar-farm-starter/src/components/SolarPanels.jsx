@@ -32,10 +32,10 @@ const solarPanels = [
 	},
 ];
 
-export default function SolarPanels(){
+export default function SolarPanels({ setShowForm }){
     return (<>
         <h1 className='mb-3'>Solar Panels</h1>
-        <Buttons />
+        <Buttons setShowForm={setShowForm}/>
         <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4'>
         {solarPanels.map(solarPanel => (
             <SolarPanel solarPanel={solarPanel} key ={solarPanel.id}/>
