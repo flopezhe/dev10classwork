@@ -5,6 +5,7 @@ import SolarPanels from './components/SolarPanels';
 import AddForm from './components/AddForm';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NotFound from './components/NotFound';
+import 'bootstrap/dist/css/bootstrap.css'; 
 
 
 function App() {
