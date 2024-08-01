@@ -29,9 +29,9 @@ export default function PetCard({ pet }) {
           </ul>
         </div>
         <div className="card-footer d-flex justify-content-end">
-          <a className="btn btn-warning me-2" href="#">
+          <Link to={`/pets/edit/${pet.petId}`} className="btn btn-warning me-2">
             Edit
-          </a>
+          </Link>
           <a className="btn btn-danger" href="#">
             Delete
           </a>
