@@ -1,40 +1,41 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+import React from "react";
 
 export default function Nav() {
   return (
-    <nav className='navbar navbar-expand'>
-      <div className='d-flex'>
-        <NavLink className='navbar-brand' to='/'>
+    <nav className="navbar navbar-expand">
+      <div className="d-flex">
+        <NavLink className="navbar-brand" to="/">
           React Pets
         </NavLink>
-        <ul className='navbar-nav'>
-          <li className='nav-item'>
-            <NavLink className='nav-link' to='/'>
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/">
               Home
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink className='nav-link' to='/pets'>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/pets">
               Pets
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink className='nav-link' to='/about'>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/about">
               About
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink className='nav-link' to='/'>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/">
               Contact
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink className='nav-link' to='/'>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/">
               Sign Up
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink className='nav-link' to='/'>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/">
               Log In
             </NavLink>
           </li>
@@ -43,5 +44,3 @@ export default function Nav() {
     </nav>
   );
 }
-
-  
