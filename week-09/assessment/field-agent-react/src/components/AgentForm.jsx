@@ -108,7 +108,6 @@ export default function AgentForm() {
               name="firstName"
               type="text"
               className="form-control"
-              //   required
               onChange={handleChange}
               value={agent.firstName}
             />
@@ -136,7 +135,6 @@ export default function AgentForm() {
             name="lastName"
             type="text"
             className="form-control"
-            // required
             onChange={handleChange}
             value={agent.lastName}
           />
@@ -151,7 +149,6 @@ export default function AgentForm() {
               name="dob"
               type="date"
               className="form-control"
-              //   required
               onChange={handleChange}
               value={agent.dob}
             />
@@ -165,9 +162,6 @@ export default function AgentForm() {
               name="heightInInches"
               type="number"
               className="form-control"
-              //   required
-              //   min="36"
-              //   max="96"
               onChange={handleChange}
               value={agent.heightInInches}
             />
