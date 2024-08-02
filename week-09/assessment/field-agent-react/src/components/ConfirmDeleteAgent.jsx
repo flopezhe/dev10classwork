@@ -14,7 +14,7 @@ export default function ConfirmDeleteAgent() {
     fetch(`${url}/${agentId}`)
       .then((response) => response.json())
       .then((json) => setAgent(json));
-  }, []);
+  }, [agent]);
 
   function handleDelete() {
     fetch(`${url}/${agentId}`, {
