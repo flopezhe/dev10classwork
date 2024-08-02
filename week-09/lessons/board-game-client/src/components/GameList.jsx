@@ -1,12 +1,18 @@
 import React, { useEffect } from "react";
 
 export default function GameList() {
+
+    
   return (
     <table>
       <thead>
-        <tr></tr>
+        <tr>
+
+        </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+
+      </tbody>
     </table>
   );
 }
