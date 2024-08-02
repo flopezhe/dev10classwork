@@ -87,7 +87,9 @@ export default function AgentForm() {
 
   return (
     <>
-      <h1 className="display-6">Add an Agent</h1>
+      <h1 className="display-6">
+        {agent.agentId ? "Edit Agent" : "Add Agent"}
+      </h1>
       {errors && errors.length > 0 && (
         <div className="alert alert-danger">
           <ul className="mb-0">
