@@ -1,30 +1,37 @@
-function Nav({ view, setView }) {
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-    function handleAdd() {
-        setView("form");
-    }
-
-    function handleList(evt) {
-        evt.preventDefault();
-        setView("list");
-    }
-
-    return (
-        <div className="d-flex align-items-center">
-            <ul className="nav my-4">
-                <li className="nav-item">
-                    <a id="linkAgents" href="#" className="nav-link" onClick={handleList}>Agents</a>
-                </li>
-                <li className="nav-item">
-                    <a id="linkAgencies" href="#" className="nav-link" onClick={evt => evt.preventDefault()}>Agencies</a>
-                </li>
-            </ul>
-            {view !== "form" &&
-                <div className="d-flex flex-grow-1 justify-content-end">
-                    <button id="btnAdd" className="btn btn-primary" onClick={handleAdd}>Add Agent</button>
-                </div>}
+function Nav() {
+  return (
+    <>
+      <nav className="navbar navbar-expand-lg">
+        <div className="collapse navbar-collapse">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <NavLink id="linkHome" to="/home" className="nav-link">
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink id="linkAgents" to="/agents" className="nav-link">
+                Agents
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <a
+                id="linkAgencies"
+                href="#"
+                className="nav-link"
+                onClick={(evt) => evt.preventDefault()}
+              >
+                Agencies
+              </a>
+            </li>
+          </ul>
         </div>
-    );
+      </nav>
+    </>
+  );
 }
 
 export default Nav;
