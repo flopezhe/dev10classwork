@@ -7,12 +7,6 @@ import Nav from "./components/Nav";
 import NotFound from "./components/NotFound";
 import ConfirmDeleteAgent from "./components/ConfirmDeleteAgent";
 
-const componentMap = {
-  form: AgentForm,
-  list: AgentList,
-  landing: Landing,
-};
-
 function App() {
   // TODO: Implement React Router V6.
 

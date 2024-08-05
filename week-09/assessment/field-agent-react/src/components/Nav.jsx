@@ -18,14 +18,14 @@ function Nav() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <a
-                id="linkAgencies"
-                href="#"
-                className="nav-link"
-                onClick={(evt) => evt.preventDefault()}
-              >
+              <NavLink id="linkAgencies" to="/agencies" className="nav-link">
                 Agencies
-              </a>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink id="linkAbout" to="/about" className="nav-link">
+                About
+              </NavLink>
             </li>
           </ul>
         </div>

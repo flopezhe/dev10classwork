@@ -1,19 +1,20 @@
 *{
     font-family: monospace;
     background-color: bisque;
+    text-align: center;
     
 }
+
 
 .home-page{
     text-align: center;
 	font-size: 30px;
     color: bisque;
-	text-align: center;
 	animation: glow 1s ease-in-out infinite alternate;
 }
 @keyframes glow {
     from{
-      text-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black, 0 0 40px black,0 0 50px black;
+      text-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black, 0 0 40px black,0 0 50px black ;
     }
     to {
       text-shadow: 0 0 60px black, 0 0 70px black;

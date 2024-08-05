@@ -17,7 +17,7 @@ function AgentList() {
     };
 
     fetchAgents();
-  }, []);
+  }, [agents]);
 
   return (
     <>

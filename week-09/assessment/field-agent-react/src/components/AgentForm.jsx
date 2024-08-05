@@ -87,7 +87,9 @@ export default function AgentForm() {
 
   return (
     <>
-      <h1 className="display-6">Add an Agent</h1>
+      <h1 className="display-6">
+        {agent.agentId ? "Edit Agent" : "Add Agent"}
+      </h1>
       {errors && errors.length > 0 && (
         <div className="alert alert-danger">
           <ul className="mb-0">
@@ -108,7 +110,6 @@ export default function AgentForm() {
               name="firstName"
               type="text"
               className="form-control"
-              required
               onChange={handleChange}
               value={agent.firstName}
             />
@@ -136,7 +137,6 @@ export default function AgentForm() {
             name="lastName"
             type="text"
             className="form-control"
-            required
             onChange={handleChange}
             value={agent.lastName}
           />
@@ -151,7 +151,6 @@ export default function AgentForm() {
               name="dob"
               type="date"
               className="form-control"
-              required
               onChange={handleChange}
               value={agent.dob}
             />
@@ -165,9 +164,6 @@ export default function AgentForm() {
               name="heightInInches"
               type="number"
               className="form-control"
-              required
-              min="36"
-              max="96"
               onChange={handleChange}
               value={agent.heightInInches}
             />
